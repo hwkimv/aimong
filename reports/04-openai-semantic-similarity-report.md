@@ -1,0 +1,714 @@
+
+OpenAI Semantic Similarity Audit
+
+## Summary
+
+- input path: `_generated\question-bank\question-bank-1056-starlevel-ultra-diverse-patched.json`
+- generatedAt: 2026-06-03T09:42:09+00:00
+- model: `text-embedding-3-large`
+- question count: 1056
+- text views embedded count: 3168
+- cache hit count: 3165
+- cache miss count: 3
+- API call count: 1
+- estimated input tokens: 126
+- API prompt tokens: 352
+- API total tokens: 352
+- same-mission duplicate count: 0
+- same-mission template repeat count: 82
+- same-mission template cluster count: 82
+- max same-mission template cluster size: 2
+- review count: 732
+- global duplicate/review count: 302
+- verdict: WARN
+
+## Recommended Actions
+
+- DELETE_ONE: use when two questions are effectively the same and coverage is not reduced.
+- REWRITE_ONE: use when the concept is valuable but the wording/template repeats.
+- MERGE: use when two questions test the same concept and can be consolidated.
+- KEEP_WITH_REASON: use when similarity is expected because the curriculum intentionally reinforces the same concept.
+
+## Same-mission Top Duplicates
+
+- none
+
+## Same-mission Template Repeats
+
+- TEMPLATE_REPEAT S0102-P1-10 vs S0102-P4-07 core=0.8215 surface=0.8045 template=0.9174/0.6061
+  - 알람 시계 사례에서 AI가 배운 뒤에는 새 자료로 ____를 통해 학습 효과를 확인해야 해요.
+  - 온도 조절기 사례에서 AI의 학습 효과를 확인하기 위해 새 자료로 ____해 보아요.
+- TEMPLATE_REPEAT S0102-P3-08 vs S0102-P5-01 core=0.7691 surface=0.7119 template=0.8761/0.5670
+  - 동아리 발표에서 계산기를 보며 AI와 일반 프로그램 구분하기를 배운 뒤 피해야 할 행동은 무엇일까요?
+  - 모둠 토의에 손글씨 인식을 보며 AI와 일반 프로그램 구분하기를 배운 뒤 피해야 할 행동은 무엇인가요?
+- TEMPLATE_REPEAT S0205-P6-08 vs S0205-P6-13 core=0.7644 surface=0.7736 template=0.8753/0.6087
+  - 온라인 활동에 모둠이 AI 결과를 실험하고 고쳐 보기 주제를 AI for Oceans 결과 사례로 발표하려고 해요. 어떤 준비가 가장 좋을까요?
+  - 과학 탐구에서 모둠이 AI 결과를 실험하고 고쳐 보기 주제를 Teachable Machine 모델 사례로 발표하려고 해요. 어떤 준비가 가장 좋을까요?
+- TEMPLATE_REPEAT S0103-P6-05 vs S0103-P6-15 core=0.6439 surface=0.6315 template=0.8690/0.6358
+  - 모둠 분류 활동에 AI for Oceans 분류 자료를 다루다가 새 자료에서 틀린 점이 보였어요. 먼저 무엇을 해야 할까요?
+  - 도서관 프로젝트에서 재사용품 사진 자료를 다루다가 새 자료에서 틀린 점이 보였어요. 먼저 무엇을 해야 할까요?
+- TEMPLATE_REPEAT S0301-P6-07 vs S0301-P6-12 core=0.7963 surface=0.7969 template=0.8679/0.6552
+  - 모둠 토의에서 뉴스 요약을 쓰다가 공식 출처가 없는 점이 보였어요. 어떻게 하는 것이 좋을까요?
+  - 숙제 검토에서 과학 상식을 쓰다가 공식 출처가 없는 점이 보였어요. 어떻게 하는 것이 좋을까요?
+- TEMPLATE_REPEAT S0102-P6-03 vs S0102-P6-11 core=0.6682 surface=0.8155 template=0.8652/0.6744
+  - 온라인 학습에 음식 추천 앱을 자료로 만들어요. 예시 데이터를 살펴보는 태도는 무엇일까요?
+  - 온라인 학습에 음식 추천 앱을 사용 전 먼저 살펴볼 점은 무엇인가요?
+- TEMPLATE_REPEAT S0204-P6-10 vs S0204-P6-15 core=0.7604 surface=0.7462 template=0.8649/0.6391
+  - 체육 기록에서 재사용품 사진 자료를 다루다가 개인정보가 보이는 점이 보였어요. 먼저 무엇을 해야 할까요?
+  - 온라인 체험에서 학교 주변 사진 자료를 다루다가 개인정보가 보이는 점이 보였어요. 먼저 무엇을 해야 할까요?
+- TEMPLATE_REPEAT S0103-P4-05 vs S0103-P5-03 core=0.8372 surface=0.7572 template=0.8618/0.7470
+  - 처음 보는 자료로 다시 살펴보는 과정은 ____예요.
+  - 바다 생물 자료 사례에서 처음 보는 자료로 다시 살펴보는 과정은 ____예요.
+- TEMPLATE_REPEAT S0205-P6-05 vs S0205-P6-15 core=0.7616 surface=0.7398 template=0.8579/0.7766
+  - 과학 탐구에서 Teachable Machine 모델 자료를 다루다가 개인정보가 추가될 위험이 있는 점이 보였어요. 먼저 무엇을 해야 할까요?
+  - 가정 학습에 요약 답변 자료를 다루다가 개인정보가 추가될 위험이 있는 점이 보였어요. 먼저 무엇을 해야 할까요?
+- TEMPLATE_REPEAT S0201-P4-09 vs S0201-P6-08 core=0.7306 surface=0.7788 template=0.8550/0.5318
+  - AI에게 어려운 낱말 풀이를 부탁한 사례를 발표하려고 해요. 어떤 준비가 가장 효과적일까요?
+  - 독서 감상문 힌트 사례로 AI 도움 요청하기를 발표하려고 해요. 어떤 준비가 가장 좋을까요?
+- TEMPLATE_REPEAT S0103-P6-03 vs S0103-P6-11 core=0.8115 surface=0.8612 template=0.8545/0.7582
+  - 도서관 프로젝트에서 재사용품 사진을 자료로 만들어요. 자료의 질을 확인하는 태도는 무엇일까요?
+  - 도서관 프로젝트에서 재사용품 사진을 학습 자료로 쓰기 전 먼저 볼 점은 무엇일까요?
+- TEMPLATE_REPEAT S0102-P4-10 vs S0102-P6-09 core=0.7221 surface=0.6190 template=0.8517/0.6231
+  - 모둠 토의에 AI가 손글씨 인식에 대해 자신 있게 말했지만 이유가 부족해 보여요. 어떻게 해야 할까요?
+  - 동아리 발표에서 AI가 계산기에 대해 자신 있게 말했지만 이유가 부족해 보여요. 어떻게 해야 할까요?
+- TEMPLATE_REPEAT S0304-P4-05 vs S0304-P5-03 core=0.8446 surface=0.8687 template=0.8501/0.5610
+  - AI를 사용하더라도 최종 결정과 ____은 사람에게 있어요.
+  - AI 카메라 사례에서 AI를 사용해도 마지막 선택과 ____은 사람에게 있어요.
+- TEMPLATE_REPEAT S0104-P1-10 vs S0104-P4-07 core=0.8332 surface=0.8078 template=0.8493/0.6098
+  - 음성 받아쓰기 사례에서 얼굴이나 목소리 자료는 ____와 관련될 수 있어 조심해야 해요.
+  - 새소리 구별 사례에서 사람을 알아볼 수 있는 얼굴·목소리는 ____로 조심해요.
+- TEMPLATE_REPEAT S0201-P1-09 vs S0201-P4-07 core=0.8039 surface=0.8389 template=0.8451/0.5823
+  - AI에게 질문할 때 포함하지 말아야 할 ____는 비밀 정보예요.
+  - AI에게 질문할 때 나를 식별할 수 있는 ____는 제외해야 해요.
+- TEMPLATE_REPEAT S0204-P4-05 vs S0204-P5-03 core=0.7969 surface=0.7443 template=0.8419/0.7111
+  - 사진에 붙인 정답 이름이 맞는지 확인하는 것은 ____ 확인이에요.
+  - 바다 쓰레기 사진 사례에서 사진에 붙인 정답 이름이 맞는지 보는 것은 ____ 확인이에요.
+- TEMPLATE_REPEAT S0103-P6-06 vs S0103-P6-10 core=0.7634 surface=0.7257 template=0.8374/0.5376
+  - 온라인 체험에서 과일 사진 모음을 학습 자료로 쓰기 전 먼저 볼 점은 무엇일까요?
+  - 온라인 체험에서 과일 사진 모음을 다루다가 잘못된 정보를 발견했어요. 다음 단계로 무엇을 해야 할까요?
+- TEMPLATE_REPEAT S0201-P6-03 vs S0201-P6-11 core=0.7234 surface=0.7638 template=0.8350/0.5976
+  - 퀴즈 연습 문제를 만들 때 조건을 살펴보는 태도는 무엇인가요?
+  - 퀴즈 연습 문제를 사용하기 전 먼저 살펴볼 점은 무엇일까요?
+- TEMPLATE_REPEAT S0304-P6-08 vs S0304-P6-15 core=0.5089 surface=0.7162 template=0.8339/0.2775
+  - 추천 서비스가 비슷한 영상만 보여 주는 사례를 발표해요. 균형을 위해 추가할 내용은 무엇인가요?
+  - 채팅 AI의 장점만 적힌 발표 자료에 빠진 내용을 보충하려고 해요. 무엇을 추가하면 좋을까요?
+- TEMPLATE_REPEAT S0203-P3-09 vs S0203-P3-10 core=0.8495 surface=0.8401 template=0.8336/0.5476
+  - AI 질문에는 필요한 정보만 쓰는 ____ 원칙이 중요해요.
+  - 태블릿 사용에서 AI에게 물어볼 때는 꼭 필요한 정보만 넣는 ____ 원칙을 지켜요.
+- TEMPLATE_REPEAT S0101-P1-09 vs S0101-P4-07 core=0.7850 surface=0.8202 template=0.8314/0.4000
+  - 전자기기가 AI인지 아닌지 판단할 때 어떤 ____을 살펴봐야 해요.
+  - 음성 받아쓰기 사례에서 전자기기가 모두 AI는 아니에요. 하는 ____을 보고 구별해요.
+- TEMPLATE_REPEAT S0105-P6-03 vs S0105-P6-07 core=0.7810 surface=0.7968 template=0.8313/0.4845
+  - 친구와 협력하여 사진 분류를 할 때, 최신 정보를 확인하는 방법은 무엇인가요?
+  - 친구와 협력하여 사진 분류를 하다가 근거가 부족한 점이 보였어요. 어떻게 해야 할까요?
+- TEMPLATE_REPEAT S0302-P6-10 vs S0302-P6-15 core=0.7128 surface=0.6339 template=0.8300/0.5513
+  - 온라인 검색에 공식 누리집 자료를 다루다가 출처가 지워진 점이 보였어요. 먼저 무엇을 해야 할까요?
+  - 학급 토의에 통계 표 자료를 다루다가 출처가 지워진 점이 보였어요. 먼저 무엇을 해야 할까요?
+- TEMPLATE_REPEAT S0201-P1-10 vs S0201-P5-03 core=0.8099 surface=0.8346 template=0.8298/0.5098
+  - AI에게 부탁할 때 원하는 답의 길이와 모양을 알려 주는 것은 ____을 정하는 일이에요.
+  - AI에게 원하는 답을 목록으로 받으려면 필요한 ____을 명확히 해야 해요.
+- TEMPLATE_REPEAT S0305-P6-03 vs S0305-P6-11 core=0.7677 surface=0.7920 template=0.8292/0.4943
+  - 생활 규칙 만들기에서 학급 규칙 설문을 자료로 만들 때 필요한 태도는 무엇인가요?
+  - 생활 규칙 만들기에서 학급 규칙 설문을 사용 전 먼저 살펴볼 점은 무엇일까요?
+- TEMPLATE_REPEAT S0205-P2-08 vs S0205-P4-01 core=0.7215 surface=0.6987 template=0.8281/0.6226
+  - AI 체험 수업에서 AI가 음성 인식 결과를 도와줬지만 답이 목적과 달라요. 무엇을 더 명확히 해야 할까요?
+  - 모둠 실험에서 AI가 추천 목록을 도와줬지만 답이 목적과 달라요. 무엇을 더 분명히 할까요?
+- TEMPLATE_REPEAT S0101-P4-05 vs S0101-P5-03 core=0.7957 surface=0.7667 template=0.8268/0.6098
+  - 추천 결과를 사용할 때는 반드시 ____해 보아야 해요.
+  - 길 찾기 추천 사례에서 추천 결과는 바로 쓰기 전에 ____해 보아야 해요.
+- TEMPLATE_REPEAT S0305-P4-05 vs S0305-P5-03 core=0.8659 surface=0.7427 template=0.8258/0.5823
+  - AI 결정에 문제가 있을 때는 ____ 요청할 수 있어요.
+  - 발표 순서 추천 사례에서 AI 결정에 문제가 있을 때는 ____ 달라고 말할 수 있어요.
+- TEMPLATE_REPEAT S0202-P4-03 vs S0202-P4-04 core=0.6462 surface=0.7015 template=0.8249/0.4396
+  - 학급 신문에서 주제에서 벗어난 답을 사용할 때 조건 추가를 살펴보는 행동은 무엇일까요?
+  - 온라인 복습에서 형식 바꾸기를 살펴보려고 해요. 먼저 확인할 것은 무엇인가요?
+- TEMPLATE_REPEAT S0201-P6-07 vs S0201-P6-15 core=0.8621 surface=0.8236 template=0.8204/0.2941
+  - 퀴즈 연습 문제를 만들 때 질문이 모호해요. 어떻게 하면 명확하게 할 수 있을까요?
+  - 퀴즈 연습 문제를 만들 때 조건이 빠져 답이 흔들려요. 무엇을 해야 할까요?
+
+## Global High Similarity Pairs
+
+- DUPLICATE S0301-P5-09 vs S0304-P5-09 core=0.9641 surface=0.7837 template=0.7621/0.6335
+  - 온라인 검색에 서로 다른 AI 답을 보았어요. 어떤 자료와 맞춰 볼까요?
+  - 체험 학습에 서로 다른 AI 답을 보았어요. 어떤 자료와 맞춰 볼까요?
+- DUPLICATE S0102-P5-07 vs S0104-P5-07 core=0.9564 surface=0.8603 template=0.7837/0.5436
+  - 모둠 토의에 발표 자료에 손글씨 인식 내용을 넣으려 해요. 어떤 행동이 가장 책임 있을까요?
+  - 체험 부스에서 발표 자료에 손글씨 숫자 인식 내용을 넣으려 해요. 어떤 행동이 가장 책임 있을까요?
+- DUPLICATE S0201-P5-09 vs S0202-P5-09 core=0.9554 surface=0.8562 template=0.6642/0.3375
+  - 두 AI 답이 다를 때 목적과 조건 중 무엇부터 볼까요?
+  - 온라인 복습에서 두 AI 답이 달라요. 질문 조건과 목적을 어떻게 살펴볼까요?
+- DUPLICATE S0202-P5-10 vs S0301-P5-10 core=0.9550 surface=0.8094 template=0.7515/0.5876
+  - 학급 신문에서 친구들이 근거 요청을 두고 의견이 달라졌어요. 가장 좋은 해결 방법은 무엇일까요?
+  - 도서관 조사에 친구들이 근거를 두고 의견이 달라졌어요. 가장 좋은 해결 방법은 무엇일까요?
+- DUPLICATE S0301-P5-09 vs S0302-P5-09 core=0.9441 surface=0.7544 template=0.7112/0.4459
+  - 온라인 검색에 서로 다른 AI 답을 보았어요. 어떤 자료와 맞춰 볼까요?
+  - 가정 과제에서 두 AI 답의 근거가 달라요. 어떤 자료와 맞춰 볼까요?
+- DUPLICATE S0105-P5-10 vs S0301-P5-10 core=0.9283 surface=0.8542 template=0.8100/0.4556
+  - 도서관 조사에 친구들이 자료 부족을 두고 의견이 달라졌어요. 가장 좋은 해결 방법은 무엇일까요?
+  - 도서관 조사에 친구들이 근거를 두고 의견이 달라졌어요. 가장 좋은 해결 방법은 무엇일까요?
+- DUPLICATE S0301-P5-10 vs S0305-P5-10 core=0.9209 surface=0.7741 template=0.7248/0.5027
+  - 도서관 조사에 친구들이 근거를 두고 의견이 달라졌어요. 가장 좋은 해결 방법은 무엇일까요?
+  - 수행평가에서 친구들이 기준 공개를 두고 의견이 달라졌어요. 가장 좋은 해결 방법은 무엇일까요?
+- DUPLICATE S0105-P5-01 vs S0205-P5-01 core=0.9201 surface=0.8352 template=0.7850/0.3723
+  - 체험 보고서에서 번역 결과를 보며 AI도 틀릴 수 있어요를 배운 뒤 피해야 할 행동은 무엇일까요?
+  - 동아리 프로젝트에서 번역 문장을 보며 AI 결과를 실험하고 고쳐 보기를 배운 뒤 피해야 할 행동은 무엇일까요?
+- REVIEW S0302-P5-09 vs S0305-P5-09 core=0.9175 surface=0.7176 template=0.6052/0.3544
+  - 가정 과제에서 두 AI 답의 근거가 달라요. 어떤 자료와 맞춰 볼까요?
+  - 동아리 활동에 AI 의견이 서로 다를 때 어떤 자료로 확인할까요?
+- REVIEW S0105-P2-09 vs S0301-P1-01 core=0.9165 surface=0.7712 template=0.6751/0.4304
+  - 학교 행사 날짜를 확인할 때 중요한 정보는 ____ 자료인지 살펴야 해요.
+  - 학교 행사 날짜를 확인할 때, 신뢰할 수 있는 자료를 참고하는 것이 중요해요.
+- REVIEW S0204-P5-07 vs S0206-P5-07 core=0.9145 surface=0.8608 template=0.7416/0.5685
+  - 학급 신문에서 발표 자료에 손글씨 자료 내용을 넣으려 해요. 어떤 행동이 가장 책임 있을까요?
+  - 학급 신문에서 발표 자료에 그림 설명 내용을 넣으려 해요. 어떤 행동이 가장 책임 있을까요?
+- REVIEW S0105-P5-10 vs S0303-P5-10 core=0.9140 surface=0.7837 template=0.7534/0.5361
+  - 도서관 조사에 친구들이 자료 부족을 두고 의견이 달라졌어요. 가장 좋은 해결 방법은 무엇일까요?
+  - 지역 조사에 친구들이 표본을 두고 의견이 달라졌어요. 가장 좋은 해결 방법은 무엇일까요?
+- REVIEW S0102-P5-07 vs S0304-P5-07 core=0.9133 surface=0.7789 template=0.8161/0.5561
+  - 모둠 토의에 발표 자료에 손글씨 인식 내용을 넣으려 해요. 어떤 행동이 가장 책임 있을까요?
+  - 체험 학습에 발표 자료에 학습 도우미 내용을 넣으려 해요. 어떤 행동이 가장 책임 있을까요?
+- REVIEW S0102-P4-10 vs S0204-P4-10 core=0.9123 surface=0.6101 template=0.6828/0.4663
+  - 모둠 토의에 AI가 손글씨 인식에 대해 자신 있게 말했지만 이유가 부족해 보여요. 어떻게 해야 할까요?
+  - 학급 신문에서 AI가 손글씨 자료에 대해 자신 있게 말했지만 이유가 부족해 보여요. 어떻게 해야 할까요?
+- REVIEW S0202-P3-04 vs S0302-P2-01 core=0.9090 surface=0.9057 template=0.7000/0.4737
+  - 답이 길면 근거가 없어도 믿어도 돼요.
+  - 근거가 없어도 글이 길면 사실이라고 볼 수 있어요.
+- REVIEW S0102-P4-10 vs S0104-P4-10 core=0.9088 surface=0.7432 template=0.8173/0.4712
+  - 모둠 토의에 AI가 손글씨 인식에 대해 자신 있게 말했지만 이유가 부족해 보여요. 어떻게 해야 할까요?
+  - 체험 부스에서 AI가 손글씨 숫자 인식에 대해 자신 있게 말했지만 이유가 부족해 보여요. 어떻게 해야 할까요?
+- REVIEW S0104-P5-10 vs S0302-P5-10 core=0.9075 surface=0.7690 template=0.6685/0.5634
+  - 가정 학습에 친구들이 오인식을 두고 의견이 달라졌어요. 가장 좋은 해결 방법은 무엇일까요?
+  - 모둠 보고서에서 친구들이 목적을 두고 의견이 달라졌어요. 가장 좋은 해결 방법은 무엇일까요?
+- REVIEW S0301-P5-10 vs S0304-P5-10 core=0.9064 surface=0.7481 template=0.7125/0.4944
+  - 도서관 조사에 친구들이 근거를 두고 의견이 달라졌어요. 가장 좋은 해결 방법은 무엇일까요?
+  - 친구와 대화에서 친구들이 차별을 두고 의견이 달라졌어요. 가장 좋은 해결 방법은 무엇일까요?
+- REVIEW S0301-P5-10 vs S0302-P5-10 core=0.9055 surface=0.7722 template=0.7208/0.4167
+  - 도서관 조사에 친구들이 근거를 두고 의견이 달라졌어요. 가장 좋은 해결 방법은 무엇일까요?
+  - 모둠 보고서에서 친구들이 목적을 두고 의견이 달라졌어요. 가장 좋은 해결 방법은 무엇일까요?
+- REVIEW S0105-P5-07 vs S0206-P5-07 core=0.9034 surface=0.8223 template=0.7698/0.5773
+  - 체험 보고서에서 발표 자료에 번역 결과 내용을 넣으려 해요. 어떤 행동이 가장 책임 있을까요?
+  - 학급 신문에서 발표 자료에 그림 설명 내용을 넣으려 해요. 어떤 행동이 가장 책임 있을까요?
+- REVIEW S0101-P6-09 vs S0304-P6-09 core=0.9027 surface=0.7719 template=0.8324/0.6458
+  - 온라인 숙제에서 AI가 번역 앱에 대해 자신 있게 말했지만 이유가 부족해 보여요. 어떻게 해야 할까요?
+  - 도서관 이용에서 AI가 번역 AI에 대해 자신 있게 말했지만 이유가 부족해 보여요. 어떻게 해야 할까요?
+- REVIEW S0301-P5-09 vs S0305-P5-09 core=0.9021 surface=0.7227 template=0.6477/0.4663
+  - 온라인 검색에 서로 다른 AI 답을 보았어요. 어떤 자료와 맞춰 볼까요?
+  - 동아리 활동에 AI 의견이 서로 다를 때 어떤 자료로 확인할까요?
+- REVIEW S0104-P2-03 vs S0203-P1-02 core=0.8999 surface=0.8680 template=0.7256/0.3750
+  - AI 활동에서 친구의 얼굴 사진을 재미있다고 생각하더라도 허락 없이 사용할 수는 없어요.
+  - 친구 얼굴 사진은 재미있으면 허락 없이 올려도 돼요.
+- REVIEW S0104-P5-10 vs S0203-P5-10 core=0.8992 surface=0.6669 template=0.7205/0.5941
+  - 가정 학습에 친구들이 오인식을 두고 의견이 달라졌어요. 가장 좋은 해결 방법은 무엇일까요?
+  - 온라인 가입에서 친구들이 비공개를 두고 의견이 달라졌어요. 가장 좋은 해결 방법은 무엇일까요?
+- REVIEW S0104-P5-10 vs S0301-P5-10 core=0.8975 surface=0.7476 template=0.7448/0.4308
+  - 가정 학습에 친구들이 오인식을 두고 의견이 달라졌어요. 가장 좋은 해결 방법은 무엇일까요?
+  - 도서관 조사에 친구들이 근거를 두고 의견이 달라졌어요. 가장 좋은 해결 방법은 무엇일까요?
+- REVIEW S0102-P5-09 vs S0104-P5-09 core=0.8972 surface=0.7485 template=0.8281/0.5104
+  - 모둠 토의에 두 AI 답이 달라요. 예시 데이터를 살피며 무엇부터 비교할까요?
+  - 체험 부스에서 두 AI 답이 달라요. 소리 데이터를 살피며 무엇부터 비교할까요?
+- REVIEW S0302-P5-09 vs S0304-P5-09 core=0.8968 surface=0.7356 template=0.6564/0.4359
+  - 가정 과제에서 두 AI 답의 근거가 달라요. 어떤 자료와 맞춰 볼까요?
+  - 체험 학습에 서로 다른 AI 답을 보았어요. 어떤 자료와 맞춰 볼까요?
+- REVIEW S0105-P5-10 vs S0302-P5-10 core=0.8967 surface=0.6653 template=0.7107/0.3939
+  - 도서관 조사에 친구들이 자료 부족을 두고 의견이 달라졌어요. 가장 좋은 해결 방법은 무엇일까요?
+  - 모둠 보고서에서 친구들이 목적을 두고 의견이 달라졌어요. 가장 좋은 해결 방법은 무엇일까요?
+- REVIEW S0202-P5-10 vs S0304-P5-10 core=0.8959 surface=0.7503 template=0.6974/0.4972
+  - 학급 신문에서 친구들이 근거 요청을 두고 의견이 달라졌어요. 가장 좋은 해결 방법은 무엇일까요?
+  - 친구와 대화에서 친구들이 차별을 두고 의견이 달라졌어요. 가장 좋은 해결 방법은 무엇일까요?
+- REVIEW S0102-P5-07 vs S0204-P5-07 core=0.8956 surface=0.6420 template=0.5662/0.4149
+  - 모둠 토의에 발표 자료에 손글씨 인식 내용을 넣으려 해요. 어떤 행동이 가장 책임 있을까요?
+  - 학급 신문에서 발표 자료에 손글씨 자료 내용을 넣으려 해요. 어떤 행동이 가장 책임 있을까요?
+
+## Clusters
+
+- C0004 `DUPLICATE` size=310 missions=S0101,S0102,S0103,S0104,S0105,S0201,S0202,S0203,S0204,S0205,S0206,S0301,S0302,S0303,S0304,S0305
+  - questionIds: S0101-P2-06, S0101-P2-07, S0101-P4-01, S0101-P5-08, S0101-P6-02, S0101-P6-06, S0101-P6-09, S0101-P6-14, S0102-P1-04, S0102-P1-06, S0102-P1-08, S0102-P2-01, S0102-P2-05, S0102-P2-10, S0102-P3-05, S0102-P3-06, S0102-P3-07, S0102-P3-08, S0102-P4-01, S0102-P4-03, S0102-P4-06, S0102-P4-09, S0102-P4-10, S0102-P5-01, S0102-P5-02, S0102-P5-03, S0102-P5-06, S0102-P5-07, S0102-P5-09, S0102-P5-10, S0102-P6-02, S0102-P6-03, S0102-P6-05, S0102-P6-07, S0102-P6-08, S0102-P6-09, S0102-P6-11, S0102-P6-12, S0102-P6-13, S0102-P6-16, S0103-P1-06, S0103-P1-08, S0103-P2-08, S0103-P3-05, S0103-P3-06, S0103-P4-02, S0103-P4-03, S0103-P4-04, S0103-P4-10, S0103-P5-06, S0103-P5-07, S0103-P5-09, S0103-P5-10, S0103-P6-02, S0103-P6-05, S0103-P6-08, S0103-P6-09, S0103-P6-13, S0103-P6-14, S0103-P6-15, S0104-P2-08, S0104-P3-07, S0104-P4-01, S0104-P4-02, S0104-P4-04, S0104-P4-08, S0104-P4-10, S0104-P5-02, S0104-P5-06, S0104-P5-07, S0104-P5-09, S0104-P5-10, S0104-P6-02, S0104-P6-14, S0105-P1-01, S0105-P1-04, S0105-P1-06, S0105-P1-08, S0105-P2-01, S0105-P2-02, S0105-P2-03, S0105-P3-01, S0105-P3-02, S0105-P3-04, S0105-P3-05, S0105-P4-01, S0105-P4-02, S0105-P4-04, S0105-P4-08, S0105-P4-09, S0105-P4-10, S0105-P5-01, S0105-P5-02, S0105-P5-04, S0105-P5-06, S0105-P5-07, S0105-P5-08, S0105-P5-09, S0105-P5-10, S0105-P6-01, S0105-P6-02, S0105-P6-04, S0105-P6-05, S0105-P6-06, S0105-P6-08, S0105-P6-10, S0105-P6-12, S0105-P6-13, S0105-P6-14, S0201-P4-01, S0201-P5-08, S0201-P5-09, S0201-P6-02, S0201-P6-09, S0202-P2-08, S0202-P4-08, S0202-P4-09, S0202-P5-06, S0202-P5-07, S0202-P5-08, S0202-P5-09, S0202-P5-10, S0202-P6-02, S0202-P6-05, S0202-P6-09, S0202-P6-13, S0202-P6-14, S0203-P2-08, S0203-P4-01, S0203-P4-10, S0203-P5-07, S0203-P5-10, S0203-P6-02, S0203-P6-05, S0203-P6-09, S0203-P6-13, S0204-P1-07, S0204-P2-05, S0204-P3-04, S0204-P3-06, S0204-P3-07, S0204-P3-09, S0204-P4-01, S0204-P4-02, S0204-P4-03, S0204-P4-04, S0204-P4-08, S0204-P4-09, S0204-P4-10, S0204-P5-01, S0204-P5-07, S0204-P5-09, S0204-P6-02, S0204-P6-03, S0204-P6-05, S0204-P6-06, S0204-P6-07, S0204-P6-08, S0204-P6-10, S0204-P6-11, S0204-P6-12, S0204-P6-14, S0204-P6-15, S0204-P6-16, S0205-P1-05, S0205-P1-06, S0205-P1-07, S0205-P2-06, S0205-P2-07, S0205-P2-08, S0205-P3-05, S0205-P4-01, S0205-P4-03, S0205-P4-08, S0205-P4-09, S0205-P4-10, S0205-P5-01, S0205-P5-02, S0205-P5-05, S0205-P5-06, S0205-P5-07, S0205-P5-08, S0205-P5-09, S0205-P5-10, S0205-P6-03, S0205-P6-05, S0205-P6-06, S0205-P6-07, S0205-P6-08, S0205-P6-10, S0205-P6-11, S0205-P6-13, S0205-P6-14, S0205-P6-15, S0205-P6-16, S0206-P1-06, S0206-P1-08, S0206-P2-05, S0206-P2-06, S0206-P2-07, S0206-P2-08, S0206-P3-05, S0206-P3-06, S0206-P3-07, S0206-P4-01, S0206-P4-02, S0206-P4-08, S0206-P4-09, S0206-P4-10, S0206-P5-02, S0206-P5-06, S0206-P5-07, S0206-P5-08, S0206-P5-09, S0206-P5-10, S0206-P6-01, S0206-P6-02, S0206-P6-03, S0206-P6-05, S0206-P6-08, S0206-P6-09, S0206-P6-11, S0206-P6-12, S0206-P6-13, S0206-P6-14, S0206-P6-15, S0206-P6-16, S0301-P2-08, S0301-P4-02, S0301-P4-09, S0301-P4-10, S0301-P5-06, S0301-P5-07, S0301-P5-08, S0301-P5-09, S0301-P5-10, S0301-P6-02, S0301-P6-09, S0301-P6-13, S0301-P6-14, S0302-P1-07, S0302-P2-08, S0302-P3-05, S0302-P3-08, S0302-P3-10, S0302-P4-01, S0302-P4-02, S0302-P4-03, S0302-P4-04, S0302-P4-06, S0302-P4-08, S0302-P4-09, S0302-P4-10, S0302-P5-01, S0302-P5-02, S0302-P5-07, S0302-P5-09, S0302-P5-10, S0302-P6-02, S0302-P6-05, S0302-P6-08, S0302-P6-12, S0302-P6-13, S0302-P6-14, S0302-P6-16, S0303-P4-01, S0303-P4-08, S0303-P4-09, S0303-P5-06, S0303-P5-07, S0303-P5-08, S0303-P5-10, S0303-P6-02, S0303-P6-08, S0303-P6-09, S0303-P6-12, S0303-P6-13, S0303-P6-14, S0304-P1-04, S0304-P2-03, S0304-P3-01, S0304-P4-01, S0304-P4-09, S0304-P4-10, S0304-P5-07, S0304-P5-08, S0304-P5-09, S0304-P5-10, S0304-P6-02, S0304-P6-08, S0304-P6-09, S0304-P6-13, S0304-P6-14, S0304-P6-15, S0305-P2-06, S0305-P2-08, S0305-P4-01, S0305-P4-09, S0305-P5-06, S0305-P5-08, S0305-P5-09, S0305-P5-10, S0305-P6-02, S0305-P6-05, S0305-P6-06, S0305-P6-08, S0305-P6-09, S0305-P6-10, S0305-P6-12, S0305-P6-14
+  - dominant template: 문장틀: [상황] AI가 [사례]을 도와줬지만 답이 목적과 달라요. 무엇을 더 분명히 할까요? 선지형태: 예시를 하나 넣어 다시 질문해요. | 읽어 보지 않은 답을 내 글처럼 냅니다. | 친구 글을 허락 없이 넣어 고쳐 달라고 해요. | [사례]에 필요한 조건 없이 더 많이 써 달라고 해요.
+  - recommendedAction: MERGE or REWRITE_ONE: keep one canonical item and rewrite/delete redundant variants.
+  - topPair: DUPLICATE S0301-P5-09 vs S0304-P5-09 core=0.9641 surface=0.7837 template=0.7621/0.6335
+  - topPair: DUPLICATE S0102-P5-07 vs S0104-P5-07 core=0.9564 surface=0.8603 template=0.7837/0.5436
+  - topPair: DUPLICATE S0201-P5-09 vs S0202-P5-09 core=0.9554 surface=0.8562 template=0.6642/0.3375
+- C0002 `TEMPLATE_REPEAT` size=13 missions=S0101
+  - questionIds: S0101-P1-05, S0101-P1-06, S0101-P1-07, S0101-P1-08, S0101-P1-09, S0101-P1-10, S0101-P2-05, S0101-P3-06, S0101-P3-08, S0101-P4-07, S0101-P5-01, S0101-P5-02, S0101-P6-01
+  - dominant template: 문장틀: AI를 구별할 때 가장 먼저 확인해야 할 것은 무엇인가요? 선지형태: 어떤 데이터를 처리하는지 살펴봐요. | 겉모습이나 [[자료/정보]/정보]만 보고 판단해요. | 한 번 써 보고 모든 상황에 맞다고 말해요. | 기능을 보지 않고 모양만 보고 판단해요.
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0101-P1-06 vs S0101-P3-08 core=0.7907 surface=0.8113 template=0.7957/0.3371
+  - topPair: TEMPLATE_REPEAT S0101-P1-09 vs S0101-P4-07 core=0.7850 surface=0.8202 template=0.8314/0.4000
+  - topPair: REVIEW S0101-P1-09 vs S0101-P1-10 core=0.8710 surface=0.8445 template=0.7700/0.5122
+- C0086 `TEMPLATE_REPEAT` size=13 missions=S0301
+  - questionIds: S0301-P1-06, S0301-P2-06, S0301-P3-07, S0301-P4-04, S0301-P4-08, S0301-P5-01, S0301-P5-02, S0301-P6-03, S0301-P6-05, S0301-P6-07, S0301-P6-10, S0301-P6-11, S0301-P6-12
+  - dominant template: 문장틀: 다음 중 지금도 맞는지 안전하게 다루는 모습은 무엇일까요? 선지형태: 공식 [자료/정보]보다 [자료/정보]을 먼저 믿어요. | 믿을 만한 기관이나 믿을 만한 [자료/정보]와 비교해요. | [자료/정보] 없는 답을 그대로 발표해요. | 설명이 많으면 맞다고 생각해요.
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0301-P6-07 vs S0301-P6-12 core=0.7963 surface=0.7969 template=0.8679/0.6552
+  - topPair: TEMPLATE_REPEAT S0301-P5-01 vs S0301-P5-02 core=0.7532 surface=0.7622 template=0.8010/0.3333
+  - topPair: TEMPLATE_REPEAT S0301-P6-05 vs S0301-P6-10 core=0.7399 surface=0.6731 template=0.8101/0.5882
+- C0042 `TEMPLATE_REPEAT` size=12 missions=S0201,S0203
+  - questionIds: S0201-P1-06, S0201-P1-09, S0201-P2-03, S0201-P2-05, S0201-P2-07, S0201-P4-07, S0201-P6-01, S0201-P6-07, S0201-P6-15, S0203-P1-06, S0203-P2-02, S0203-P2-04
+  - dominant template: 문장틀: AI에게 질문할 때 어떤 정보를 포함하면 안 될까요? 선지형태: 질문을 간단하게 정리해요. | 내 [[자료/정보]/정보]과 나이를 적어요. | 질문의 목적을 분명히 해요. | AI에게 질문을 여러 번 반복해요.
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0201-P6-07 vs S0201-P6-15 core=0.8621 surface=0.8236 template=0.8204/0.2941
+  - topPair: TEMPLATE_REPEAT S0201-P2-05 vs S0201-P2-07 core=0.8587 surface=0.8542 template=0.8098/0.4046
+  - topPair: TEMPLATE_REPEAT S0201-P1-09 vs S0201-P4-07 core=0.8039 surface=0.8389 template=0.8451/0.5823
+- C0034 `TEMPLATE_REPEAT` size=11 missions=S0104,S0203,S0302
+  - questionIds: S0104-P6-06, S0203-P6-06, S0203-P6-16, S0302-P2-05, S0302-P3-06, S0302-P6-03, S0302-P6-06, S0302-P6-07, S0302-P6-10, S0302-P6-11, S0302-P6-15
+  - dominant template: 문장틀: [상황]를 사용 전 먼저 살펴볼 점은 무엇일까요? 선지형태: [[자료/정보]/정보]을 묻지 않고 올려요. | [[자료/정보]/정보]와 [자료/정보]를 먼저 확인해요. | 개인 [[자료/정보]/정보] [자료/정보]를 장난으로 공유해요. | 잘못 알아본 가능성을 보지 않아요.
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0203-P6-06 vs S0203-P6-16 core=0.8093 surface=0.7761 template=0.8022/0.4127
+  - topPair: TEMPLATE_REPEAT S0302-P6-10 vs S0302-P6-15 core=0.7128 surface=0.6339 template=0.8300/0.5513
+  - topPair: REVIEW S0302-P6-11 vs S0302-P6-15 core=0.8669 surface=0.8294 template=0.6330/0.3949
+- C0037 `TEMPLATE_REPEAT` size=6 missions=S0105
+  - questionIds: S0105-P2-05, S0105-P3-06, S0105-P6-03, S0105-P6-07, S0105-P6-11, S0105-P6-15
+  - dominant template: 문장틀: [상황]/정보] 분류를 정리할 때 알맞은 태도는 무엇일까요? 선지형태: 최신 정보인지 확인해요. | 친구에게 확인 없이 바로 공유해요. | 근거보다 표현이 멋진지만 봐요. | [사례]을 내 생각처럼 발표해요.
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0105-P6-03 vs S0105-P6-07 core=0.7810 surface=0.7968 template=0.8313/0.4845
+  - topPair: REVIEW S0105-P2-05 vs S0105-P6-11 core=0.7857 surface=0.6908 template=0.7787/0.4189
+  - topPair: REVIEW S0105-P6-11 vs S0105-P6-15 core=0.7691 surface=0.8285 template=0.7754/0.4875
+- C0061 `TEMPLATE_REPEAT` size=6 missions=S0203
+  - questionIds: S0203-P1-07, S0203-P3-08, S0203-P4-02, S0203-P4-08, S0203-P5-01, S0203-P5-02
+  - dominant template: 문장틀: 음성 변환 앱에서 [[자료/정보]/정보]를 보며 [[자료/정보]/정보]는 넣지 않기를 배운 뒤 피해야 할 행동은 무엇일까요? 선지형태: 친구 정보는 내 정보처럼 조심해요. | [[자료/정보]/정보] 대신 가상의 [[자료/정보]/정보]을 써요. | [[자료/정보]/정보]를 예시로 그대로 입력해요. | [[자료/정보]/정보]가 보이면 지우고 질문해요.
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0203-P3-08 vs S0203-P5-01 core=0.8185 surface=0.8309 template=0.8083/0.6279
+  - topPair: REVIEW S0203-P4-02 vs S0203-P5-02 core=0.8565 surface=0.8020 template=0.7190/0.3879
+  - topPair: REVIEW S0203-P1-07 vs S0203-P3-08 core=0.8502 surface=0.8073 template=0.7760/0.4908
+- C0102 `TEMPLATE_REPEAT` size=6 missions=S0303
+  - questionIds: S0303-P4-03, S0303-P6-05, S0303-P6-06, S0303-P6-07, S0303-P6-10, S0303-P6-11
+  - dominant template: 문장틀: 지역 조사에 비슷한 [[자료/정보]/정보]을 사용할 때 [자료/정보]가 골고루 담겼는지 살펴보는 행동은 무엇일까요? 선지형태: 빠진 친구들의 의견은 중요하지 않다고 봐요. | 추천 영상이 보여 준 내용만 세상의 전부라고 믿어요. | 치우친 결과가 누구에게 불리한지 따져 봐요. | 작은 설문으로 전체 결론을 냅니다.
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0303-P6-07 vs S0303-P6-11 core=0.8042 surface=0.8003 template=0.7831/0.5486
+  - topPair: REVIEW S0303-P6-06 vs S0303-P6-10 core=0.7527 surface=0.8330 template=0.7427/0.5000
+  - topPair: REVIEW S0303-P6-05 vs S0303-P6-10 core=0.7137 surface=0.6345 template=0.7463/0.5291
+- C0026 `TEMPLATE_REPEAT` size=5 missions=S0104,S0203
+  - questionIds: S0104-P1-10, S0104-P3-04, S0104-P4-07, S0104-P6-04, S0203-P1-01
+  - dominant template: 문장틀: [사례]에서 [[자료/정보]/정보]이나 [[자료/정보]/정보] [자료/정보]는 ____와 관련될 수 있어 조심해야 해요. 선지형태: [[자료/정보]/정보]정보 | 음식 | 날씨 | 신원
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0104-P1-10 vs S0104-P4-07 core=0.8332 surface=0.8078 template=0.8493/0.6098
+  - topPair: REVIEW S0104-P1-10 vs S0104-P3-04 core=0.8632 surface=0.7537 template=0.6851/0.4516
+  - topPair: REVIEW S0104-P3-04 vs S0104-P6-04 core=0.8609 surface=0.7207 template=0.5729/0.2951
+- C0039 `TEMPLATE_REPEAT` size=5 missions=S0105,S0301
+  - questionIds: S0105-P2-09, S0105-P2-10, S0301-P1-01, S0301-P2-09, S0301-P2-10
+  - dominant template: 문장틀: 학교 행사 [자료/정보]를 확인할 때 중요한 정보는 ____ [자료/정보]인지 살펴야 해요. 선지형태: 가장 긴 | 가장 예쁜 | 가장 빠른 | 가장 정확한
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0301-P2-09 vs S0301-P2-10 core=0.8484 surface=0.6965 template=0.8194/0.5823
+  - topPair: REVIEW S0105-P2-09 vs S0301-P1-01 core=0.9165 surface=0.7712 template=0.6751/0.4304
+  - topPair: REVIEW S0105-P2-09 vs S0301-P2-10 core=0.8790 surface=0.7534 template=0.7198/0.5176
+- C0101 `TEMPLATE_REPEAT` size=5 missions=S0303,S0304
+  - questionIds: S0303-P3-09, S0303-P3-10, S0304-P1-09, S0304-P4-07, S0304-P6-04
+  - dominant template: 문장틀: 추천 AI가 비슷한 것만 보여 줄 때는 다른 ____도 찾아봐야 해요. 선지형태: 모양 | 관점 | 소리 | 잠금번호
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0304-P1-09 vs S0304-P4-07 core=0.7757 surface=0.8409 template=0.7893/0.4783
+  - topPair: REVIEW S0303-P3-10 vs S0304-P1-09 core=0.8848 surface=0.7605 template=0.6960/0.4286
+  - topPair: REVIEW S0304-P1-09 vs S0304-P6-04 core=0.8404 surface=0.7110 template=0.6442/0.5474
+- C0112 `TEMPLATE_REPEAT` size=5 missions=S0305
+  - questionIds: S0305-P2-05, S0305-P3-06, S0305-P6-03, S0305-P6-07, S0305-P6-11
+  - dominant template: 문장틀: [상황] 학급 규칙 설문을 정리할 때 필요한 태도는 무엇인가요? 선지형태: 모든 의견을 수집해요. | 결과만 발표해요. | 소수 의견을 무시해요. | 틀릴 가능성을 무시해요.
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0305-P6-03 vs S0305-P6-11 core=0.7677 surface=0.7920 template=0.8292/0.4943
+  - topPair: REVIEW S0305-P2-05 vs S0305-P6-03 core=0.8594 surface=0.7841 template=0.7580/0.4928
+  - topPair: REVIEW S0305-P6-07 vs S0305-P6-11 core=0.7686 surface=0.7523 template=0.7411/0.5200
+- C0011 `TEMPLATE_REPEAT` size=4 missions=S0102
+  - questionIds: S0102-P1-09, S0102-P1-10, S0102-P4-07, S0102-P6-04
+  - dominant template: 문장틀: 방과 후 코딩 활동에서 AI가 배운 후에는 새로운 [자료/정보]로 ____해 보아야 해요. 선지형태: 감추기 | 테스트 | 결과를 비교하기 | 베껴 쓰기
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0102-P1-10 vs S0102-P4-07 core=0.8215 surface=0.8045 template=0.9174/0.6061
+  - topPair: TEMPLATE_REPEAT S0102-P1-09 vs S0102-P6-04 core=0.7715 surface=0.7796 template=0.7959/0.5766
+  - topPair: REVIEW S0102-P1-09 vs S0102-P1-10 core=0.8224 surface=0.7492 template=0.7499/0.4952
+- C0023 `TEMPLATE_REPEAT` size=3 missions=S0103
+  - questionIds: S0103-P6-06, S0103-P6-10, S0103-P6-12
+  - dominant template: 문장틀: 온라인 체험에서 과일 [[자료/정보]/정보] 모음을 학습 [자료/정보]로 쓰기 전 먼저 볼 점은 무엇일까요? 선지형태: 맞지 않는 [[자료/정보]/정보]표를 고치지 않아요. | 사용 전에 위험한 점이 없는지 살펴요. | [자료/정보]가 적어도 결과를 무조건 믿어요. | 한쪽 예시만 보고 결론을 내요.
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0103-P6-06 vs S0103-P6-10 core=0.7634 surface=0.7257 template=0.8374/0.5376
+  - topPair: REVIEW S0103-P6-10 vs S0103-P6-12 core=0.8061 surface=0.7515 template=0.7428/0.3560
+  - topPair: REVIEW S0103-P6-06 vs S0103-P6-12 core=0.7885 surface=0.7279 template=0.7636/0.3560
+- C0030 `TEMPLATE_REPEAT` size=3 missions=S0104
+  - questionIds: S0104-P3-09, S0104-P3-10, S0104-P4-06
+  - dominant template: 문장틀: AI가 글과 [[자료/정보]/정보]을 알아보려면 다양한 ____가 필요해요. 선지형태: 예시 | [자료/정보] | 정보 | 사례
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0104-P3-09 vs S0104-P3-10 core=0.8107 surface=0.8673 template=0.7964/0.6341
+  - topPair: REVIEW S0104-P3-10 vs S0104-P4-06 core=0.8364 surface=0.7848 template=0.7633/0.5169
+  - topPair: REVIEW S0104-P3-09 vs S0104-P4-06 core=0.8250 surface=0.7442 template=0.7658/0.4198
+- C0032 `TEMPLATE_REPEAT` size=3 missions=S0104
+  - questionIds: S0104-P6-03, S0104-P6-07, S0104-P6-11
+  - dominant template: 문장틀: 도서관 검색에 [[자료/정보]/정보] 대신 물체 인식을 [자료/정보]로 만들어요. 소리 데이터를 살펴보는 태도는 무엇일까요? 선지형태: 필요하지 않은 개인 [자료/정보]는 넣지 않아요. | 인식 결과를 확인하지 않고 복사해요. | 개인 [[자료/정보]/정보] [자료/정보]를 장난으로 공유해요. | 소음이 심해도 결과가 항상 같다고 말해요.
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0104-P6-07 vs S0104-P6-11 core=0.8073 surface=0.7747 template=0.8038/0.5104
+  - topPair: REVIEW S0104-P6-03 vs S0104-P6-07 core=0.7358 surface=0.7031 template=0.7566/0.5258
+- C0059 `TEMPLATE_REPEAT` size=3 missions=S0202
+  - questionIds: S0202-P6-03, S0202-P6-11, S0202-P6-15
+  - dominant template: 문장틀: [상황] 나이에 맞지 않는 표현을 [자료/정보]로 만들어요. 길이 조절을 살펴보는 태도는 무엇인가요? 선지형태: 조건을 너무 많이 넣어 헷갈리게 해요. | 근거 없는 답을 멋진 표현이라서 믿어요. | 틀린 부분을 보아도 확인하지 않아요. | 좋은 부분과 고칠 부분을 나누어 봐요.
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0202-P6-03 vs S0202-P6-11 core=0.6093 surface=0.6830 template=0.8089/0.6597
+  - topPair: REVIEW S0202-P6-11 vs S0202-P6-15 core=0.8519 surface=0.8059 template=0.5585/0.4718
+- C0066 `TEMPLATE_REPEAT` size=3 missions=S0203
+  - questionIds: S0203-P3-09, S0203-P3-10, S0203-P4-06
+  - dominant template: 문장틀: AI 질문에는 필요한 정보만 쓰는 ____ 원칙이 중요해요. 선지형태: 최대 | 비밀 | 장난 | 최소
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0203-P3-09 vs S0203-P3-10 core=0.8495 surface=0.8401 template=0.8336/0.5476
+  - topPair: REVIEW S0203-P3-09 vs S0203-P4-06 core=0.8487 surface=0.7710 template=0.7158/0.4000
+- C0070 `TEMPLATE_REPEAT` size=3 missions=S0204
+  - questionIds: S0204-P1-09, S0204-P1-10, S0204-P4-07
+  - dominant template: 문장틀: [상황] 다른 사람이 만든 그림이나 [[자료/정보]/정보]은 ____을 반드시 검토해야 해요. 선지형태: 저작권 | 간식 | 운동 | 걸린 시간
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0204-P1-09 vs S0204-P1-10 core=0.8200 surface=0.8053 template=0.8176/0.7143
+  - topPair: REVIEW S0204-P1-09 vs S0204-P4-07 core=0.7669 surface=0.7279 template=0.7766/0.7368
+  - topPair: REVIEW S0204-P1-10 vs S0204-P4-07 core=0.7623 surface=0.6719 template=0.7777/0.6804
+- C0092 `TEMPLATE_REPEAT` size=3 missions=S0302
+  - questionIds: S0302-P1-09, S0302-P1-10, S0302-P6-04
+  - dominant template: 문장틀: [상황] 공식 [자료/정보]와 개인 의견의 차이를 ____해야 해요. 선지형태: 구분 | 숨김 | 따라 쓰기 | 없애기
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0302-P1-09 vs S0302-P1-10 core=0.8395 surface=0.6919 template=0.8041/0.5060
+  - topPair: REVIEW S0302-P1-10 vs S0302-P6-04 core=0.8466 surface=0.7909 template=0.7565/0.5610
+  - topPair: REVIEW S0302-P1-09 vs S0302-P6-04 core=0.8364 surface=0.6960 template=0.7057/0.4810
+- C0106 `TEMPLATE_REPEAT` size=3 missions=S0304
+  - questionIds: S0304-P3-04, S0304-P4-05, S0304-P5-03
+  - dominant template: 문장틀: AI를 사용할 때 최종 결정은 항상 사람에게 있어야 해요.
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0304-P4-05 vs S0304-P5-03 core=0.8446 surface=0.8687 template=0.8501/0.5610
+  - topPair: REVIEW S0304-P3-04 vs S0304-P4-05 core=0.8495 surface=0.6780 template=0.7744/0.4688
+- C0007 `TEMPLATE_REPEAT` size=2 missions=S0101
+  - questionIds: S0101-P3-05, S0101-P6-16
+  - dominant template: 문장틀: 다음 중 생활 속 도구가 AI인지 바르게 살펴본 모습은 무엇일까요? 선지형태: 어떤 [자료/정보]를 보고 분류하거나 추천하는지 설명해 봐요. | 앱 [[자료/정보]/정보]에 '스마트'가 들어가면 AI라고 판단해요. | 자동으로 켜지면 모두 AI라고 정해요. | 결과가 빠르게 나오면 AI라고 생각해요.
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0101-P3-05 vs S0101-P6-16 core=0.7167 surface=0.7546 template=0.7826/0.3365
+- C0009 `TEMPLATE_REPEAT` size=2 missions=S0101
+  - questionIds: S0101-P4-03, S0101-P5-06
+  - dominant template: 문장틀: 카메라 꽃 [[자료/정보]/정보] 찾기를 사용할 때 AI 기능을 올바르게 이해하기 위해 어떤 행동이 필요할까요? 선지형태: 어떤 정보를 보고 꽃을 구별하는지 살펴봐요. | 추천 결과를 모두 정답처럼 받아들여요. | 기능을 보지 않고 모양만 보고 판단해요. | 불이 켜지면 AI 기능이라고 정해요.
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0101-P4-03 vs S0101-P5-06 core=0.7525 surface=0.7828 template=0.8068/0.3163
+- C0010 `TEMPLATE_REPEAT` size=2 missions=S0101
+  - questionIds: S0101-P4-05, S0101-P5-03
+  - dominant template: 문장틀: 추천 결과를 사용할 때는 반드시 ____해 보아야 해요. 선지형태: 확인 | 그대로 사용하기 | 무시하기 | 숨기기
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0101-P4-05 vs S0101-P5-03 core=0.7957 surface=0.7667 template=0.8268/0.6098
+- C0019 `TEMPLATE_REPEAT` size=2 missions=S0103
+  - questionIds: S0103-P4-05, S0103-P5-03
+  - dominant template: 문장틀: 처음 보는 [자료/정보]로 다시 살펴보는 과정은 ____예요. 선지형태: 테스트 | 비교 | 검토하기 | 삭제
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0103-P4-05 vs S0103-P5-03 core=0.8372 surface=0.7572 template=0.8618/0.7470
+- C0022 `TEMPLATE_REPEAT` size=2 missions=S0103
+  - questionIds: S0103-P6-03, S0103-P6-11
+  - dominant template: 문장틀: 도서관 프로젝트에서 재사용품 [[자료/정보]/정보]을 [자료/정보]로 만들어요. [자료/정보]의 질을 확인하는 태도는 무엇일까요? 선지형태: 마음에 드는 결과만 골라 발표해요. | [자료/정보]가 적어도 결과를 무조건 믿어요. | 테스트 없이 잘 배웠다고 정해요. | [자료/정보]의 [자료/정보]와 목적을 확인해요.
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0103-P6-03 vs S0103-P6-11 core=0.8115 surface=0.8612 template=0.8545/0.7582
+- C0040 `TEMPLATE_REPEAT` size=2 missions=S0105
+  - questionIds: S0105-P3-09, S0105-P3-10
+  - dominant template: 문장틀: AI의 오류를 인식하는 것은 안전한 ____ 습관이에요. 선지형태: 검토 | 사용 | 전달 | 제작
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0105-P3-09 vs S0105-P3-10 core=0.8657 surface=0.8479 template=0.8103/0.5185
+- C0043 `TEMPLATE_REPEAT` size=2 missions=S0201
+  - questionIds: S0201-P1-07, S0201-P2-02
+  - dominant template: 문장틀: AI에게 도움을 요청할 때 어떤 요소를 강조해야 할까요? 선지형태: 예시와 주의할 점을 함께 요청해요. | 어떤 결과를 원하는지 먼저 말해요. | 조건 없이 긴 답이면 된다고 해요. | 필요한 조건을 간단히 덧붙여요.
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0201-P1-07 vs S0201-P2-02 core=0.7861 surface=0.7257 template=0.8085/0.2385
+- C0044 `TEMPLATE_REPEAT` size=2 missions=S0201
+  - questionIds: S0201-P1-10, S0201-P5-03
+  - dominant template: 문장틀: AI에게 부탁할 때 원하는 답의 길이와 모양을 알려 주는 것은 ____을 정하는 일이에요. 선지형태: 형식 | 비밀번호 | [[자료/정보]/정보] | [[자료/정보]/정보]
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0201-P1-10 vs S0201-P5-03 core=0.8099 surface=0.8346 template=0.8298/0.5098
+- C0046 `TEMPLATE_REPEAT` size=2 missions=S0201
+  - questionIds: S0201-P2-04, S0201-P2-09
+  - dominant template: 문장틀: AI에게 누가 읽을 답인지 알려 주면 더 적합한 답변을 받을 수 있어요.
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0201-P2-04 vs S0201-P2-09 core=0.8097 surface=0.7210 template=0.7882/0.2308
+- C0048 `TEMPLATE_REPEAT` size=2 missions=S0201
+  - questionIds: S0201-P4-09, S0201-P6-08
+  - dominant template: 문장틀: AI에게 [사례]를 부탁한 사례를 발표하려고 해요. 어떤 준비가 가장 효과적일까요? 선지형태: 틀린 답이 나와도 질문을 고치지 않아요. | 사례 [자료/정보]가 맞는지 발표 전에 확인해요. | 누가 볼 글인지 말하지 않아요. | 무엇을 원하는지 말하지 않고 요청해요.
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0201-P4-09 vs S0201-P6-08 core=0.7306 surface=0.7788 template=0.8550/0.5318
+- C0049 `TEMPLATE_REPEAT` size=2 missions=S0201
+  - questionIds: S0201-P6-03, S0201-P6-11
+  - dominant template: 문장틀: [사례] 문제를 만들 때 조건을 살펴보는 태도는 무엇인가요? 선지형태: 조건을 너무 많이 섞어 헷갈리게 물어요. | 누가 볼 글인지 말하지 않아요. | 왜 필요한지 말하지 않고 길게 써 달라고 해요. | 예시와 주의할 점을 함께 요청해요.
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0201-P6-03 vs S0201-P6-11 core=0.7234 surface=0.7638 template=0.8350/0.5976
+- C0057 `TEMPLATE_REPEAT` size=2 missions=S0202
+  - questionIds: S0202-P4-03, S0202-P4-04
+  - dominant template: 문장틀: [상황] 주제에서 벗어난 답을 사용할 때 조건 추가를 살펴보는 행동은 무엇일까요? 선지형태: 틀린 부분을 보아도 확인하지 않아요. | AI에게 화내는 말만 입력해요. | 틀린 내용은 다른 [자료/정보]로 확인해요. | 내가 원하는 형식으로 바꿔요.
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0202-P4-03 vs S0202-P4-04 core=0.6462 surface=0.7015 template=0.8249/0.4396
+- C0060 `TEMPLATE_REPEAT` size=2 missions=S0202
+  - questionIds: S0202-P6-06, S0202-P6-12
+  - dominant template: 문장틀: [상황] 어려운 낱말이 많은 답을 사용 전 먼저 살펴볼 점은 무엇인가요? 선지형태: [[자료/정보]/정보]를 많이 넣어 답을 받으려 해요. | 사용 전에 위험한 점이 없는지 살펴봐야 해요. | 근거 없는 답을 멋진 표현이라서 믿어요. | 고칠 점을 보지 않고 그대로 써요.
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0202-P6-06 vs S0202-P6-12 core=0.7887 surface=0.8034 template=0.7885/0.4375
+- C0062 `TEMPLATE_REPEAT` size=2 missions=S0203
+  - questionIds: S0203-P1-10, S0203-P6-10
+  - dominant template: 문장틀: 학급 지도 [자료/정보]에 친구의 [[자료/정보]/정보]가 보입니다. 공유 전에 가장 먼저 할 일은 무엇인가요? 선지형태: [[자료/정보]/정보]를 지우거나 넓은 지역 표현으로 바꾸고 공개 범위를 확인해요. | [[자료/정보]/정보]를 더 크게 표시해 찾기 쉽게 만들어요. | AI가 알아서 보호한다고 믿고 그대로 올려요. | 친구 [[자료/정보]/정보]과 [[자료/정보]/정보]도 함께 적어요.
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0203-P1-10 vs S0203-P6-10 core=0.8515 surface=0.8878 template=0.8049/0.4432
+- C0071 `TEMPLATE_REPEAT` size=2 missions=S0204
+  - questionIds: S0204-P4-05, S0204-P5-03
+  - dominant template: 문장틀: [[자료/정보]/정보]에 붙인 정답 [[자료/정보]/정보]이 맞는지 확인하는 것은 ____ 확인이에요. 선지형태: 정확성 | 무늬 | [[자료/정보]/정보]표 | 날씨
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0204-P4-05 vs S0204-P5-03 core=0.7969 surface=0.7443 template=0.8419/0.7111
+- C0083 `TEMPLATE_REPEAT` size=2 missions=S0206
+  - questionIds: S0206-P3-01, S0206-P3-03
+  - dominant template: 문장틀: [상황] AI가 만든 그림은 저작권 문제를 고려할 필요가 없어요.
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0206-P3-01 vs S0206-P3-03 core=0.8107 surface=0.8363 template=0.7935/0.2712
+- C0094 `TEMPLATE_REPEAT` size=2 missions=S0302
+  - questionIds: S0302-P3-01, S0302-P3-03
+  - dominant template: 문장틀: [상황] 광고 목적이 있는 [자료/정보]는 그 목적을 함께 고려해야 해요.
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0302-P3-01 vs S0302-P3-03 core=0.7908 surface=0.7182 template=0.7939/0.6429
+- C0114 `TEMPLATE_REPEAT` size=2 missions=S0305
+  - questionIds: S0305-P4-05, S0305-P5-03
+  - dominant template: 문장틀: AI 결정에 문제가 있을 때는 ____ 요청할 수 있어요. 선지형태: 재검토 | 무시 | 변경 | 숨김
+  - recommendedAction: REWRITE_ONE: vary the task structure, not just the scenario nouns.
+  - topPair: TEMPLATE_REPEAT S0305-P4-05 vs S0305-P5-03 core=0.8659 surface=0.7427 template=0.8258/0.5823
+- C0105 `REVIEW` size=13 missions=S0304
+  - questionIds: S0304-P1-02, S0304-P1-05, S0304-P1-07, S0304-P1-08, S0304-P2-04, S0304-P2-05, S0304-P3-05, S0304-P3-06, S0304-P3-08, S0304-P4-04, S0304-P5-01, S0304-P6-10, S0304-P6-12
+  - dominant template: 문장틀: [사례]는 편리하지만 틀린 번역을 확인해야 해요.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0304-P2-05 vs S0304-P3-06 core=0.8793 surface=0.8397 template=0.7274/0.4720
+  - topPair: REVIEW S0304-P6-10 vs S0304-P6-12 core=0.8494 surface=0.8534 template=0.5950/0.3627
+  - topPair: REVIEW S0304-P1-02 vs S0304-P2-04 core=0.8462 surface=0.8019 template=0.6031/0.2500
+- C0014 `REVIEW` size=8 missions=S0103
+  - questionIds: S0103-P1-02, S0103-P1-04, S0103-P2-01, S0103-P2-02, S0103-P2-04, S0103-P3-02, S0103-P3-04, S0103-P5-04
+  - dominant template: 문장틀: 잘못된 [[자료/정보]/정보]표가 많으면 AI가 잘못된 결론을 내릴 수 있어요.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0103-P1-04 vs S0103-P2-02 core=0.8574 surface=0.8302 template=0.7790/0.2353
+  - topPair: REVIEW S0103-P1-02 vs S0103-P3-02 core=0.8560 surface=0.8261 template=0.7626/0.3143
+  - topPair: REVIEW S0103-P1-04 vs S0103-P2-01 core=0.8296 surface=0.7840 template=0.6437/0.2462
+- C0045 `REVIEW` size=8 missions=S0201,S0202
+  - questionIds: S0201-P2-01, S0201-P3-04, S0201-P3-08, S0201-P4-02, S0201-P4-04, S0201-P5-01, S0202-P2-01, S0202-P3-08
+  - dominant template: 문장틀: 답을 받은 뒤에는 사실과 표현을 다시 확인해야 해요.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0201-P3-08 vs S0202-P3-08 core=0.8650 surface=0.8078 template=0.7108/0.3536
+  - topPair: REVIEW S0201-P2-01 vs S0202-P2-01 core=0.8628 surface=0.7979 template=0.7760/0.3043
+  - topPair: REVIEW S0201-P3-08 vs S0201-P5-01 core=0.8380 surface=0.7934 template=0.6997/0.4459
+- C0055 `REVIEW` size=8 missions=S0202,S0301,S0302
+  - questionIds: S0202-P3-04, S0202-P6-01, S0301-P1-04, S0301-P2-02, S0301-P2-03, S0301-P3-04, S0301-P6-01, S0302-P2-01
+  - dominant template: 문장틀: 답이 길면 근거가 없어도 믿어도 돼요.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0202-P3-04 vs S0302-P2-01 core=0.9090 surface=0.9057 template=0.7000/0.4737
+  - topPair: REVIEW S0202-P6-01 vs S0301-P1-04 core=0.8777 surface=0.8466 template=0.6562/0.2769
+  - topPair: REVIEW S0202-P3-04 vs S0202-P6-01 core=0.8709 surface=0.7866 template=0.5740/0.2000
+- C0025 `REVIEW` size=6 missions=S0104,S0203
+  - questionIds: S0104-P1-06, S0104-P2-05, S0104-P2-07, S0104-P5-01, S0203-P1-08, S0203-P2-07
+  - dominant template: 문장틀: 다음 중 [[자료/정보]/정보] 주의를 안전하게 다루는 모습은 무엇일까요? 선지형태: 한 장의 [[자료/정보]/정보]만 보고 모든 대상을 판단해요. | 나와 친구를 알아볼 수 있는 [자료/정보]는 먼저 가려요. | 소음이 심해도 결과가 항상 같다고 말해요. | 인식 결과를 다시 보지 않고 발표해요.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0104-P1-06 vs S0203-P1-08 core=0.8725 surface=0.7296 template=0.6317/0.2963
+  - topPair: REVIEW S0203-P1-08 vs S0203-P2-07 core=0.8405 surface=0.8070 template=0.7558/0.2993
+  - topPair: REVIEW S0104-P1-06 vs S0104-P2-07 core=0.8020 surface=0.7652 template=0.7785/0.3957
+- C0005 `REVIEW` size=5 missions=S0101,S0201,S0202
+  - questionIds: S0101-P2-08, S0201-P3-01, S0201-P3-03, S0201-P3-07, S0202-P3-01
+  - dominant template: 문장틀: [사례]에 어려운 말이 많아 이해하기 어려워요. 어떻게 다시 요청하면 좋을까요? 선지형태: 원하는 대상을 말하지 않고 다시 물어요. | 원하는 점은 빼고 분량만 늘려 달라고 해요. | [[자료/정보]/정보]를 더 넣으면 좋아질 거라고 생각해요. | 어려운 말은 쉬운 말로 바꿔 달라고 해요.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0201-P3-03 vs S0202-P3-01 core=0.8838 surface=0.8102 template=0.6650/0.2069
+  - topPair: REVIEW S0101-P2-08 vs S0201-P3-07 core=0.8659 surface=0.8325 template=0.7331/0.3799
+  - topPair: REVIEW S0201-P3-01 vs S0201-P3-03 core=0.8520 surface=0.8174 template=0.6457/0.3200
+- C0063 `REVIEW` size=5 missions=S0203
+  - questionIds: S0203-P2-05, S0203-P6-03, S0203-P6-07, S0203-P6-11, S0203-P6-15
+  - dominant template: 문장틀: [상황]/정보]을 다룰 때 주의해야 할 태도는 무엇일까요? 선지형태: 친구 정보를 내 정보처럼 소중히 여겨요. | [[자료/정보]/정보] 정보가 보이는 [[자료/정보]/정보]을 그대로 올려요. | [[자료/정보]/정보]가 있어도 AI가 알아서 보호한다고 믿어요. | [[자료/정보]/정보]를 넣어 소개 글을 만들어요.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0203-P2-05 vs S0203-P6-03 core=0.8634 surface=0.7778 template=0.6829/0.4151
+  - topPair: REVIEW S0203-P6-07 vs S0203-P6-11 core=0.8574 surface=0.7194 template=0.7053/0.2907
+  - topPair: REVIEW S0203-P6-03 vs S0203-P6-07 core=0.8470 surface=0.7984 template=0.6753/0.3647
+- C0072 `REVIEW` size=5 missions=S0205
+  - questionIds: S0205-P1-04, S0205-P1-08, S0205-P2-03, S0205-P3-02, S0205-P6-01
+  - dominant template: 문장틀: [사례]를 실험하고 고쳐 보기 활동에서 첫 결과가 마음에 들어도 반드시 테스트해야 해요.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0205-P1-04 vs S0205-P3-02 core=0.8701 surface=0.8298 template=0.6411/0.4928
+  - topPair: REVIEW S0205-P2-03 vs S0205-P3-02 core=0.8644 surface=0.8233 template=0.6929/0.5588
+  - topPair: REVIEW S0205-P1-04 vs S0205-P2-03 core=0.8626 surface=0.8440 template=0.7195/0.5205
+- C0110 `REVIEW` size=5 missions=S0305
+  - questionIds: S0305-P1-08, S0305-P3-05, S0305-P4-02, S0305-P4-08, S0305-P5-02
+  - dominant template: 문장틀: 다음 중 수행평가에서 생활 속 공정한 AI 사용을 실천한 모습은 무엇일까요? 선지형태: 한쪽 의견만 모아 전체 규칙을 정해요. | AI가 정하면 친구 의견은 필요 없다고 해요. | 불리한 친구가 있어도 살펴볼 점을 숨겨요. | 결과가 공정한지 이유를 설명해요.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0305-P4-02 vs S0305-P4-08 core=0.8285 surface=0.8172 template=0.7367/0.4199
+  - topPair: REVIEW S0305-P4-02 vs S0305-P5-02 core=0.8248 surface=0.7057 template=0.6857/0.2955
+  - topPair: REVIEW S0305-P1-08 vs S0305-P5-02 core=0.6860 surface=0.7628 template=0.7615/0.5882
+- C0001 `REVIEW` size=3 missions=S0101
+  - questionIds: S0101-P1-03, S0101-P5-04, S0101-P5-05
+  - dominant template: 문장틀: AI인지 보려면 겉모습보다 어떤 일을 하는지 살펴야 해요.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0101-P1-03 vs S0101-P5-04 core=0.8489 surface=0.6936 template=0.7380/0.5424
+  - topPair: REVIEW S0101-P5-04 vs S0101-P5-05 core=0.8325 surface=0.7934 template=0.7335/0.3288
+- C0012 `REVIEW` size=3 missions=S0102
+  - questionIds: S0102-P3-01, S0102-P3-03, S0102-P3-09
+  - dominant template: 문장틀: 집에서 숙제할 때는 규칙 기반 프로그램은 정해진 조건에 따라 결과를 냅니다.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0102-P3-03 vs S0102-P3-09 core=0.8527 surface=0.7241 template=0.5263/0.2105
+  - topPair: REVIEW S0102-P3-01 vs S0102-P3-03 core=0.7551 surface=0.7735 template=0.7751/0.7385
+- C0016 `REVIEW` size=3 missions=S0103
+  - questionIds: S0103-P1-09, S0103-P1-10, S0103-P6-04
+  - dominant template: 문장틀: AI가 환경 수업에서 다양한 [자료/정보]를 학습하려면 [자료/정보]의 ____이 필요해요. 선지형태: 비밀성 | 정확성 | 다양성 | 신뢰성
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0103-P1-09 vs S0103-P6-04 core=0.8428 surface=0.8044 template=0.6480/0.4742
+  - topPair: REVIEW S0103-P1-09 vs S0103-P1-10 core=0.7926 surface=0.7720 template=0.7677/0.5567
+- C0027 `REVIEW` size=3 missions=S0104,S0203
+  - questionIds: S0104-P2-03, S0104-P6-01, S0203-P1-02
+  - dominant template: 문장틀: AI 활동에서 친구의 [[자료/정보]/정보]을 재미있다고 생각하더라도 허락 없이 사용할 수는 없어요.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0104-P2-03 vs S0203-P1-02 core=0.8999 surface=0.8680 template=0.7256/0.3750
+  - topPair: REVIEW S0104-P6-01 vs S0203-P1-02 core=0.8897 surface=0.8320 template=0.7576/0.6557
+  - topPair: REVIEW S0104-P2-03 vs S0104-P6-01 core=0.8393 surface=0.7900 template=0.6463/0.3117
+- C0047 `REVIEW` size=3 missions=S0201,S0202
+  - questionIds: S0201-P4-05, S0202-P4-05, S0202-P5-03
+  - dominant template: 문장틀: 표나 목록처럼 원하는 답의 형태는 ____이라고 할 수 있어요. 선지형태: 소음 | 무게 | 움직임 | 형식
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0201-P4-05 vs S0202-P4-05 core=0.8638 surface=0.7072 template=0.6728/0.3514
+  - topPair: REVIEW S0202-P4-05 vs S0202-P5-03 core=0.8612 surface=0.6965 template=0.7103/0.6098
+- C0051 `REVIEW` size=3 missions=S0202,S0205
+  - questionIds: S0202-P1-02, S0205-P3-01, S0205-P3-03
+  - dominant template: 문장틀: 더 정확한 답을 위해 친구 [[자료/정보]/정보]를 넣어도 돼요.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0202-P1-02 vs S0205-P3-01 core=0.8753 surface=0.8090 template=0.4524/0.2000
+  - topPair: REVIEW S0205-P3-01 vs S0205-P3-03 core=0.8642 surface=0.8237 template=0.5919/0.2128
+- C0056 `REVIEW` size=3 missions=S0202
+  - questionIds: S0202-P3-06, S0202-P3-09, S0202-P3-10
+  - dominant template: 문장틀: [사례]에 나이에 맞지 않는 표현이 섞여 있어요. 고치기 전에 어떻게 살펴보면 좋을까요? 선지형태: 조건을 끝없이 많이 넣어 더 헷갈리게 해요. | 좋은 부분과 고칠 부분을 나누어 봐요. | 답이 맞지 않아도 그대로 냅니다. | 나를 알아볼 정보까지 AI에게 알려요.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0202-P3-06 vs S0202-P3-09 core=0.8361 surface=0.7824 template=0.6646/0.2676
+  - topPair: REVIEW S0202-P3-09 vs S0202-P3-10 core=0.8305 surface=0.8788 template=0.7683/0.6136
+- C0068 `REVIEW` size=3 missions=S0204,S0303
+  - questionIds: S0204-P1-03, S0303-P2-02, S0303-P2-04
+  - dominant template: 문장틀: [상황] 한 종류의 [자료/정보]만 많으면 항상 공정한 결과가 나와요.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0204-P1-03 vs S0303-P2-02 core=0.8733 surface=0.8019 template=0.5879/0.1786
+  - topPair: REVIEW S0303-P2-02 vs S0303-P2-04 core=0.8683 surface=0.8848 template=0.7467/0.5574
+- C0074 `REVIEW` size=3 missions=S0205
+  - questionIds: S0205-P2-04, S0205-P3-08, S0205-P6-09
+  - dominant template: 문장틀: Teachable Machine 모델을 살펴볼 때 [사례]가 틀리면 [자료/정보]나 질문을 고쳐 다시 테스트할 수 있어요.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0205-P2-04 vs S0205-P3-08 core=0.7449 surface=0.7282 template=0.7627/0.4276
+  - topPair: REVIEW S0205-P2-04 vs S0205-P6-09 core=0.7059 surface=0.6396 template=0.7588/0.2674
+  - topPair: REVIEW S0205-P3-08 vs S0205-P6-09 core=0.6648 surface=0.6838 template=0.7541/0.3470
+- C0077 `REVIEW` size=3 missions=S0205
+  - questionIds: S0205-P3-09, S0205-P3-10, S0205-P4-06
+  - dominant template: 문장틀: [사례]을 실험할 때 [[자료/정보]/정보]는 넣지 않는 ____이 필요해요. 선지형태: 주의 | 경계 | [사례] | 기록
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0205-P3-10 vs S0205-P4-06 core=0.7367 surface=0.6368 template=0.7482/0.3733
+  - topPair: REVIEW S0205-P3-09 vs S0205-P3-10 core=0.6176 surface=0.5168 template=0.7432/0.3944
+- C0080 `REVIEW` size=3 missions=S0206
+  - questionIds: S0206-P1-07, S0206-P3-08, S0206-P5-01
+  - dominant template: 문장틀: 글쓰기 시간에 학급 신문 기사를 보며 [사례]을 내 말로 정리하기를 배운 뒤 피해야 할 행동은 무엇일까요? 선지형태: 친구의 글을 AI에 넣기 전 허락을 구해요. | [사례]을 읽고 이해한 뒤 내 말로 바꿔요. | 남의 글을 [자료/정보] 없이 AI에 넣어요. | 내 생각과 예시를 더해 정리해요.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0206-P3-08 vs S0206-P5-01 core=0.8275 surface=0.8299 template=0.7755/0.5355
+  - topPair: REVIEW S0206-P1-07 vs S0206-P3-08 core=0.8207 surface=0.8383 template=0.6508/0.4751
+- C0084 `REVIEW` size=3 missions=S0206
+  - questionIds: S0206-P4-06, S0206-P5-04, S0206-P5-05
+  - dominant template: 문장틀: [사례]을 제출하기 전에는 풀이 과정을 내 말로 ____할 수 있어야 해요. 선지형태: 암호화 | 설명 | 베껴 쓰기 | 포장
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0206-P5-04 vs S0206-P5-05 core=0.8469 surface=0.7598 template=0.4564/0.2466
+  - topPair: REVIEW S0206-P4-06 vs S0206-P5-05 core=0.8268 surface=0.6201 template=0.6372/0.3951
+- C0098 `REVIEW` size=3 missions=S0303
+  - questionIds: S0303-P2-05, S0303-P3-06, S0303-P6-03
+  - dominant template: 문장틀: [상황] 도시 [자료/정보]만 있는 표를 정리할 때 알맞은 태도는 무엇일까요? 선지형태: 공정한 판단을 위해 다른 [자료/정보]와 비교해요. | 치우친 [자료/정보]를 고치지 않고 발표해요. | 내가 좋아하는 의견만 남겨요. | [자료/정보]를 어떻게 모았는지 숨겨요.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0303-P2-05 vs S0303-P6-03 core=0.8414 surface=0.7989 template=0.7460/0.5455
+  - topPair: REVIEW S0303-P2-05 vs S0303-P3-06 core=0.8121 surface=0.7539 template=0.7778/0.5085
+- C0109 `REVIEW` size=3 missions=S0305
+  - questionIds: S0305-P1-04, S0305-P2-03, S0305-P3-02
+  - dominant template: 문장틀: 생활 속 공정한 AI 사용 활동에서 한쪽 의견만 모으면 공정한 규칙을 만들기 어려워요.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0305-P2-03 vs S0305-P3-02 core=0.8630 surface=0.8058 template=0.7764/0.4444
+  - topPair: REVIEW S0305-P1-04 vs S0305-P3-02 core=0.8157 surface=0.8404 template=0.7575/0.4638
+  - topPair: REVIEW S0305-P1-04 vs S0305-P2-03 core=0.7649 surface=0.7335 template=0.7593/0.4384
+- C0111 `REVIEW` size=3 missions=S0305
+  - questionIds: S0305-P1-09, S0305-P3-04, S0305-P6-04
+  - dominant template: 문장틀: [상황] AI 추천은 최종 결정이 아니라 ____ [자료/정보]로 활용하는 것이 바람직해요. 선지형태: 기준 | 참고 | 정답 | 결과
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0305-P1-09 vs S0305-P6-04 core=0.8535 surface=0.8009 template=0.7103/0.4301
+  - topPair: REVIEW S0305-P1-09 vs S0305-P3-04 core=0.8219 surface=0.7226 template=0.7785/0.2973
+- C0003 `REVIEW` size=2 missions=S0101,S0203
+  - questionIds: S0101-P2-01, S0203-P3-02
+  - dominant template: 문장틀: 생활 속 AI를 찾을 때 [[자료/정보]/정보] 걱정은 전혀 필요 없어요.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0101-P2-01 vs S0203-P3-02 core=0.8867 surface=0.8731 template=0.7010/0.3667
+- C0006 `REVIEW` size=2 missions=S0101
+  - questionIds: S0101-P2-09, S0101-P2-10
+  - dominant template: 문장틀: 그림 인식 게임처럼 [자료/정보]를 보고 알맞은 답을 고르는 기능은 ____와 관련이 있어요. 선지형태: 단순 저장 | 정해진 계산 | AI | 화면 꾸미기
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0101-P2-09 vs S0101-P2-10 core=0.8559 surface=0.7343 template=0.6511/0.4800
+- C0008 `REVIEW` size=2 missions=S0101
+  - questionIds: S0101-P4-02, S0101-P4-08
+  - dominant template: 문장틀: 방과 후 활동에 스팸 메일 분류를 [자료/정보]로 만들어요. 기능 중심 판단을 살펴보는 태도는 무엇일까요? 선지형태: 추천 결과를 모두 정답처럼 받아들여요. | 겉모습보다 하는 일을 먼저 봐요. | 한 번 써 보고 모든 상황에 맞다고 말해요. | 전기로 움직이면 모두 AI라고 생각해요.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0101-P4-02 vs S0101-P4-08 core=0.6713 surface=0.7037 template=0.7552/0.4475
+- C0013 `REVIEW` size=2 missions=S0102
+  - questionIds: S0102-P5-04, S0102-P5-05
+  - dominant template: 문장틀: [사례]는 사람이 미리 정한 ____대로 움직여요. 선지형태: 기분 | 들은 말 | 취향 | 규칙
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0102-P5-04 vs S0102-P5-05 core=0.8277 surface=0.7690 template=0.7430/0.4179
+- C0015 `REVIEW` size=2 missions=S0103
+  - questionIds: S0103-P1-07, S0103-P3-08
+  - dominant template: 문장틀: 환경 수업에 소리 녹음 [자료/정보]를 보며 AI는 데이터를 보고 배워요를 배운 뒤 피해야 할 행동은 무엇일까요? 선지형태: [자료/정보]의 종류가 충분한지 비교해요. | 다양한 예시를 모아 한쪽으로 치우치지 않게 해요. | 테스트 없이 잘 배웠다고 정해요. | 허락받은 [자료/정보]만 사용해요.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0103-P1-07 vs S0103-P3-08 core=0.7711 surface=0.7419 template=0.7715/0.5742
+- C0017 `REVIEW` size=2 missions=S0103
+  - questionIds: S0103-P2-10, S0103-P3-10
+  - dominant template: 문장틀: 잘못 붙인 [[자료/정보]/정보]표가 많으면 AI가 ____ 배울 수 있어요. 선지형태: 틀리게 | 빠르게만 | 예쁘게 | 조용히
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0103-P2-10 vs S0103-P3-10 core=0.8251 surface=0.6803 template=0.5781/0.3206
+- C0018 `REVIEW` size=2 missions=S0103
+  - questionIds: S0103-P3-01, S0103-P3-03
+  - dominant template: 문장틀: 온라인 체험에서 AI for Oceans 활동처럼 분류 예시를 보며 AI 원리를 체험할 수 있어요.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0103-P3-01 vs S0103-P3-03 core=0.7883 surface=0.8256 template=0.7442/0.4667
+- C0020 `REVIEW` size=2 missions=S0103,S0204
+  - questionIds: S0103-P4-07, S0204-P2-09
+  - dominant template: 문장틀: [사례]에서 한쪽으로 치우치지 않으려면 [자료/정보]가 ____해야 해요. 선지형태: 비밀성 | 화려함 | 다양성 | 걸린 시간
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0103-P4-07 vs S0204-P2-09 core=0.5874 surface=0.6220 template=0.8239/0.6818
+- C0021 `REVIEW` size=2 missions=S0103
+  - questionIds: S0103-P4-09, S0103-P5-08
+  - dominant template: 문장틀: 미술 [자료/정보] 정리에서 모둠이 [주제] 주제를 [사례] 사례로 발표하려고 해요. 어떤 준비가 가장 좋을까요? 선지형태: AI가 틀린 이유를 살피지 않아요. | 사례 [자료/정보]가 맞는지 발표 전에 살펴요. | [자료/정보]가 적어도 결과를 무조건 믿어요. | 비슷한 [[자료/정보]/정보]만 보고 전체를 알 수 있다고 해요.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0103-P4-09 vs S0103-P5-08 core=0.8142 surface=0.8020 template=0.7793/0.4724
+- C0024 `REVIEW` size=2 missions=S0104
+  - questionIds: S0104-P1-01, S0104-P3-01
+  - dominant template: 문장틀: AI 번역 결과가 항상 정확하지 않기 때문에, 번역된 내용을 다시 확인해야 해요.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0104-P1-01 vs S0104-P3-01 core=0.8626 surface=0.8545 template=0.4557/0.1695
+- C0028 `REVIEW` size=2 missions=S0104
+  - questionIds: S0104-P2-10, S0104-P6-08
+  - dominant template: 문장틀: [사례]이 자꾸 틀려요. 원인을 찾기 위한 실험 계획으로 알맞은 것은 무엇인가요? 선지형태: 조용한 곳과 소음이 있는 곳에서 같은 문장을 녹음해 결과를 비교해요. | 소음이 있어도 결과는 항상 같다고 발표해요. | 틀린 문장은 모두 지워서 실패를 숨겨요. | 마이크를 사용하지 않고 결과만 믿어요.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0104-P2-10 vs S0104-P6-08 core=0.8457 surface=0.8181 template=0.6662/0.3721
+- C0029 `REVIEW` size=2 missions=S0104,S0205
+  - questionIds: S0104-P3-02, S0205-P1-01
+  - dominant template: 문장틀: AI 활동에서 [[자료/정보]/정보] 인식 결과를 사용할 때는 그 근거를 확인해야 해요.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0104-P3-02 vs S0205-P1-01 core=0.8708 surface=0.8394 template=0.5602/0.3385
+- C0031 `REVIEW` size=2 missions=S0104
+  - questionIds: S0104-P4-05, S0104-P6-10
+  - dominant template: 문장틀: 교실에서 [사례] 결과가 이상하게 나왔어요. 원인을 찾는 순서로 가장 알맞은 것은 무엇인가요? 선지형태: 주변 소음을 줄여 다시 녹음하고, 원래 말과 받아쓰기 결과를 비교해요. | 받아쓰기 문장만 고쳐서 처음부터 맞은 것처럼 표시해요. | 마이크와 주변 소음은 보지 않고 AI만 탓해요. | 짧은 문장 하나만 더 녹음하고 모든 문제가 해결됐다고 정해요.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0104-P4-05 vs S0104-P6-10 core=0.8277 surface=0.7493 template=0.6695/0.2347
+- C0033 `REVIEW` size=2 missions=S0104
+  - questionIds: S0104-P6-05, S0104-P6-13
+  - dominant template: 문장틀: 꽃 [[자료/정보]/정보] 인식이 틀린 원인을 찾기 위해 비교하면 좋은 조건은 무엇인가요? 선지형태: [[자료/정보]/정보]의 밝기, 초점, 찍은 각도를 비교해요. | AI가 맞혔다고 생각하고 그대로 써요. | 소음이 심해도 [[자료/정보]/정보] 결과가 항상 같다고 말해요. | 친구 [[자료/정보]/정보]을 더 넣어요.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0104-P6-05 vs S0104-P6-13 core=0.7494 surface=0.7278 template=0.7456/0.2936
+- C0035 `REVIEW` size=2 missions=S0104,S0203
+  - questionIds: S0104-P6-12, S0203-P6-12
+  - dominant template: 문장틀: [상황]를 쓰다가 소음이 큰 점이 보였어요. 어떻게 하는 것이 좋을까요? 선지형태: 허락 없이 [[자료/정보]/정보]을 앱에 넣어요. | AI가 사람의 마음까지 읽는다고 설명해요. | AI가 붙인 [[자료/정보]/정보]을 바로 사실로 말해요. | 소리와 [[자료/정보]/정보] 상태를 바꾸어 다시 확인해요.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0104-P6-12 vs S0203-P6-12 core=0.5968 surface=0.6839 template=0.8283/0.5475
+- C0036 `REVIEW` size=2 missions=S0105,S0301
+  - questionIds: S0105-P2-04, S0301-P2-04
+  - dominant template: 문장틀: 역사 인물 설명을 살펴볼 때 [사례]은 항상 맞으므로 [자료/정보]가 필요 없어요.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0105-P2-04 vs S0301-P2-04 core=0.8742 surface=0.8094 template=0.6977/0.5667
+- C0038 `REVIEW` size=2 missions=S0105,S0303
+  - questionIds: S0105-P2-08, S0303-P2-08
+  - dominant template: 문장틀: 숙제 시간에 AI가 추천 이유를 도와줬지만 답이 목적과 달라요. 무엇을 더 분명히 할까요? 선지형태: 추천 이유 답의 대상과 형식을 말하지 않아요. | 원하는 대상을 말하지 않고 다시 물어요. | [[자료/정보]/정보]를 더 넣으면 좋아질 거라고 생각해요. | 표나 목록처럼 원하는 형식을 말해요.
+  - recommendedAction: KEEP_WITH_REASON or REWRITE_ONE after human review.
+  - topPair: REVIEW S0105-P2-08 vs S0303-P2-08 core=0.7573 surface=0.7865 template=0.7327/0.8660
+
+## Thresholds Used
+
+- duplicate_core_threshold: 0.88
+- review_core_threshold: 0.82
+- template_repeat_threshold: 0.78
+- surface_duplicate_threshold: 0.9
+- global_duplicate_core_threshold: 0.92
+- global_review_core_threshold: 0.86
+- global_template_repeat_threshold: 0.82
+
+## Notes
+
+- 기존 token/ngram 0.75 report와 OpenAI embedding score는 직접 비교하지 마세요.
+- same mission은 hard fail 기준입니다.
+- global은 warning 기준입니다.
+- The embedding cache stores hashes and short previews, not full source text.
