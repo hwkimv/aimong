@@ -111,11 +111,13 @@ contract derivation failed: totalQuestionCount: dataset declares 1056 but data c
 |---|---|
 | `make test` (no database) | 71 passed, 7 skipped |
 | `make test` with `AIMONG_TEST_DB_URL` | 78 passed |
-| Backend `./gradlew test` (no database) | 151 tests, 0 failures, 1 skipped |
-| Backend `./gradlew test` with `TEST_DB_URL` | 151 tests, 0 failures, 0 skipped |
+| Backend `./gradlew test` (no database) | 159 tests, 0 failures, 9 skipped |
+| Backend `./gradlew test` with `TEST_DB_URL` | 161 tests, 0 failures, 0 skipped |
 
-`OpenAiClientTimeoutTest` accounts for two of the 151; the single skip is
-`BackendApplicationTests.contextLoads`, which needs a database.
+The database-gated classes are `BackendApplicationTests`,
+`MissionSetAvailabilityQueryCountTest` and `GachaPullConcurrencyTest`. Without
+a database they are skipped; the reported total differs by two because a
+skipped parameterized method counts once rather than per case.
 
 ## Regression check
 

@@ -116,7 +116,8 @@ Same test, after the fix:
 [2.491s] the worker thread is released, not left blocked on the socket: PASS
 ```
 
-Full backend suite: 151 tests, 0 failures.
+Full backend suite at the time of the fix: 151 tests, 0 failures. Currently
+161 tests, 0 failures with a database.
 
 ## Results
 

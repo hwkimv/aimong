@@ -141,8 +141,8 @@ make db-verify   # 실제 PostgreSQL 적재 검증 (AIMONG_TEST_DB_URL 필요)
 |---|---|
 | `make test` | 71 passed, 7 skipped |
 | `AIMONG_TEST_DB_URL=… make test` | 78 passed |
-| `cd backend && ./gradlew test` | 151 tests, 0 failures, 1 skipped |
-| `cd backend && TEST_DB_URL=… ./gradlew test` | 151 tests, 0 failures, 0 skipped |
+| `cd backend && ./gradlew test` | 159 tests, 0 failures, 9 skipped |
+| `cd backend && TEST_DB_URL=… ./gradlew test` | 161 tests, 0 failures, 0 skipped |
 
 DB 없이도 전부 통과합니다. DB가 필요한 테스트는 건너뛰되 사유를 남기고, CI는
 항상 PostgreSQL을 제공하므로 CI에서는 건너뛰지 않습니다.
@@ -213,8 +213,11 @@ docs/               architecture, data contract, validation strategy, case studi
 | [case-studies/question-set-binding.md](docs/case-studies/question-set-binding.md) | `set_id` 누락으로 96개 세트가 비던 문제 |
 | [case-studies/external-api-timeouts.md](docs/case-studies/external-api-timeouts.md) | 15초처럼 보였던 타임아웃이 실제로는 무제한이던 문제 |
 | [case-studies/silent-contract-hole.md](docs/case-studies/silent-contract-hole.md) | 실행되지 않던 계약 검사 |
+| [case-studies/reward-concurrency.md](docs/case-studies/reward-concurrency.md) | 보상 동시성 — 이미 안전함을 검증하고 테스트로 고정 |
 | [evidence/dataset-validation.md](docs/evidence/dataset-validation.md) | 실행 조건과 수치 |
 | [evidence/postgres-integration.md](docs/evidence/postgres-integration.md) | 실제 DB 적재 결과 |
+| [evidence/query-count.md](docs/evidence/query-count.md) | 추천 미션 조회 쿼리 수 측정 |
+| [evidence/concurrency-gacha-pull.md](docs/evidence/concurrency-gacha-pull.md) | 동시 gacha pull 검증 |
 
 ---
 
@@ -247,9 +250,12 @@ docs/               architecture, data contract, validation strategy, case studi
   테스트는 없습니다.
 - **성능 수치는 없습니다.** 이 저장소에는 부하 측정 결과가 없고, 문서 어디에도
   처리량·지연 개선을 주장하지 않습니다. 외부 API 관련 수치는 단일 호출이
-  제한되는지만 보인 것입니다.
-- **동시성은 검증하지 않았습니다.** 백엔드는 상태 변경 경로에 비관적 락을 널리
-  쓰고 있으나, 이 저장소에서 동시성 테스트를 작성해 확인하지는 않았습니다.
+  제한되는지만 보인 것이고, 쿼리 수는 세었지만 실행 시간은 재지 않았습니다.
+- **동시성 검증은 gacha pull 한 흐름뿐입니다.** 티켓 이중 사용이 없음을 실제
+  PostgreSQL에서 확인했고, 락을 임시로 제거하면 테스트가 실패하는 것까지
+  확인했습니다. 미션 제출·퀘스트 수령·스테이지 보상 등 다른 보상 경로는
+  같은 방식의 락을 쓰지만 테스트가 없습니다. 단일 JVM·단일 DB 노드 기준이며
+  부하나 락 대기 시간은 측정하지 않았습니다.
 - **Flyway 러너 자체는 거치지 않습니다.** 마이그레이션 SQL을 순서대로 직접
   적용하므로 checksum 검증 동작은 다루지 않습니다.
 - **마이그레이션은 V1–V16까지입니다.** `main` 기준이며 이후 버전은 없습니다.

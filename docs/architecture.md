@@ -108,3 +108,11 @@ tests run against real PostgreSQL.
 OpenAI calls run on a dedicated bounded pool with a read timeout, so a slow
 upstream degrades chat rather than the whole application. See
 [case-studies/external-api-timeouts.md](case-studies/external-api-timeouts.md).
+
+## Concurrency on reward paths
+
+State-changing reward flows take `PESSIMISTIC_WRITE` row locks in the database
+rather than coordinating in application memory, so the guarantee holds across
+instances. The gacha pull path is verified under real concurrent load in
+[case-studies/reward-concurrency.md](case-studies/reward-concurrency.md); the
+other reward paths use the same pattern but are not covered by a test.
