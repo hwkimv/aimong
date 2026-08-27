@@ -37,3 +37,17 @@ logs/
 **/application-local.yml
 **/application-prod.yml
 **/serviceAccountKey.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Pipeline local artifacts
+.tmp/
+pipeline/out/
+pipeline/.tmp/
+
+# Local-only notes (never committed)
+.local/
