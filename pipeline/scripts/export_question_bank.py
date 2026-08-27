@@ -1,4 +1,14 @@
 #!/usr/bin/env python3
+# SUPERSEDED. Kept as the reference for the failure this pipeline was rebuilt to fix.
+#
+# Running this against data/question-bank-1056.json with config/mission-config.json
+# reports verdict=FAIL with 99 issues: the config still describes the earlier
+# 960-question plan, its allowedContentTags list is missing six tags the data uses,
+# the pack expectation double-prefixes "P" so it compares PP1..PP6 against P1..P6,
+# and the total-count check silently never runs because it reads globalPlan
+# ["totalQuestions"] while the config key is "totalQuestionCount".
+#
+# The maintained implementation is pipeline/src/aimong_qbank; run `make verify`.
 """Export AImong rich question-bank JSON to backend-compatible artifacts.
 
 Inputs:

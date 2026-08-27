@@ -1,0 +1,135 @@
+{
+  "contractVersion": "1.0",
+  "canonicalDataset": "data/question-bank-1056.json",
+  "provenance": {
+    "generationVersion": "AImong-AI-literacy-source-synthesis-1056-ultra-diverse-2026-05-26-patched-20260601-sweep4-semantic-rewrite-20260602-semantic-rewrite-20260602-semantic-rewrite-20260602-semantic-rewrite-20260602-semantic-rewrite-20260602-semantic-rewrite-20260602-semantic-rewrite-20260602-semantic-rewrite-20260602-semantic-rewrite-20260602-final-option-review-20260603",
+    "supersedes": {
+      "previousQuestionCount": 960,
+      "addedQuestionCount": 96,
+      "addedPerMission": 6,
+      "externalIdRangePerMission": "P6-11..P6-16",
+      "note": "960 was the earlier generation plan. The dataset records a deliberate expansion of +96 HIGH questions (6 per mission, P6-11..P6-16) to 1056, so 1056 is the canonical size and config/mission-config.json is stale."
+    }
+  },
+  "structure": {
+    "totalQuestions": 1056,
+    "totalMissions": 16,
+    "questionsPerMission": 66,
+    "packsPerMission": 6,
+    "packSizePerMission": {
+      "P1": 10,
+      "P2": 10,
+      "P3": 10,
+      "P4": 10,
+      "P5": 10,
+      "P6": 16
+    },
+    "difficultyPerMission": {
+      "LOW": 30,
+      "MEDIUM": 20,
+      "HIGH": 16
+    },
+    "missionCodes": [
+      "S0101",
+      "S0102",
+      "S0103",
+      "S0104",
+      "S0105",
+      "S0201",
+      "S0202",
+      "S0203",
+      "S0204",
+      "S0205",
+      "S0206",
+      "S0301",
+      "S0302",
+      "S0303",
+      "S0304",
+      "S0305"
+    ]
+  },
+  "fingerprint": {
+    "note": "Observed global counts, recorded as a regression guard against silent data drift. These are not design quotas: the dataset declares a per-pack type split in actualPackTypeDistribution that the data does not satisfy, so per-pack type is deliberately not enforced.",
+    "typeCounts": {
+      "FILL": 186,
+      "MULTIPLE": 332,
+      "OX": 207,
+      "SITUATION": 331
+    }
+  },
+  "enums": {
+    "type": [
+      "OX",
+      "MULTIPLE",
+      "FILL",
+      "SITUATION"
+    ],
+    "difficulty": [
+      "LOW",
+      "MEDIUM",
+      "HIGH"
+    ],
+    "sourceType": [
+      "STATIC",
+      "GPT"
+    ],
+    "generationPhase": [
+      "PREGENERATED",
+      "RUNTIME"
+    ],
+    "contentTags": [
+      "AUTOMATION",
+      "BIAS",
+      "COPYRIGHT",
+      "DATA",
+      "ETHICS",
+      "FACT",
+      "PRIVACY",
+      "PROMPT",
+      "RESPONSIBILITY",
+      "SAFETY",
+      "VERIFICATION"
+    ]
+  },
+  "fields": {
+    "requiredNonEmptyStrings": [
+      "externalId",
+      "missionCode",
+      "type",
+      "difficulty",
+      "question",
+      "explanation",
+      "curriculumRef"
+    ],
+    "externalIdPattern": "^S\\d{4}-P([1-6])-\\d{2}$"
+  },
+  "typeShapes": {
+    "OX": {
+      "options": "null",
+      "answer": "bool"
+    },
+    "MULTIPLE": {
+      "options": "list[4]",
+      "answer": "index"
+    },
+    "SITUATION": {
+      "options": "list[4]",
+      "answer": "index"
+    },
+    "FILL": {
+      "options": "list[4]",
+      "answer": "index-list"
+    }
+  },
+  "quality": {
+    "maxContentTagsPerQuestion": 3,
+    "duplicatePromptSimilarityThreshold": 0.94,
+    "absoluteWordList": [
+      "항상",
+      "절대",
+      "무조건",
+      "모든",
+      "반드시"
+    ]
+  }
+}
