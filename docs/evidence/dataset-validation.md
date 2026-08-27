@@ -111,11 +111,11 @@ contract derivation failed: totalQuestionCount: dataset declares 1056 but data c
 |---|---|
 | `make test` (no database) | 71 passed, 7 skipped |
 | `make test` with `AIMONG_TEST_DB_URL` | 78 passed |
-| Backend `./gradlew test` (no database) | 149 tests, 0 failures, 1 skipped |
+| Backend `./gradlew test` (no database) | 151 tests, 0 failures, 1 skipped |
 | Backend `./gradlew test` with `TEST_DB_URL` | 151 tests, 0 failures, 0 skipped |
 
-The backend count rises from 149 to 151 because `OpenAiClientTimeoutTest` adds
-two cases.
+`OpenAiClientTimeoutTest` accounts for two of the 151; the single skip is
+`BackendApplicationTests.contextLoads`, which needs a database.
 
 ## Regression check
 

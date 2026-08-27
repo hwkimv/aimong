@@ -141,7 +141,7 @@ make db-verify   # 실제 PostgreSQL 적재 검증 (AIMONG_TEST_DB_URL 필요)
 |---|---|
 | `make test` | 71 passed, 7 skipped |
 | `AIMONG_TEST_DB_URL=… make test` | 78 passed |
-| `cd backend && ./gradlew test` | 149 tests, 0 failures, 1 skipped |
+| `cd backend && ./gradlew test` | 151 tests, 0 failures, 1 skipped |
 | `cd backend && TEST_DB_URL=… ./gradlew test` | 151 tests, 0 failures, 0 skipped |
 
 DB 없이도 전부 통과합니다. DB가 필요한 테스트는 건너뛰되 사유를 남기고, CI는
