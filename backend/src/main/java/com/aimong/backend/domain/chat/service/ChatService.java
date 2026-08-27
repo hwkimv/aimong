@@ -29,6 +29,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Executor;
+import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
@@ -78,6 +80,9 @@ public class ChatService {
     private final WeeklyQuestService weeklyQuestService;
     private final AchievementService achievementService;
     private final TransactionTemplate transactionTemplate;
+    @org.springframework.beans.factory.annotation.Qualifier(
+            com.aimong.backend.global.config.OpenAiExecutorConfig.OPENAI_EXECUTOR)
+    private final Executor openAiExecutor;
 
     public ChatResponse send(UUID childId, String message, boolean masked) {
         return send(childId, message, masked, null);
@@ -284,8 +289,10 @@ public class ChatService {
 
         try {
             return CompletableFuture
-                    .supplyAsync(() -> openAiClient.createChatReply(CHAT_MODEL, DEVELOPER_PROMPT, contextualPrompt))
+                    .supplyAsync(() -> openAiClient.createChatReply(CHAT_MODEL, DEVELOPER_PROMPT, contextualPrompt), openAiExecutor)
                     .get(GPT_TIMEOUT_SECONDS, TimeUnit.SECONDS);
+        } catch (RejectedExecutionException exception) {
+            throw new AimongException(ErrorCode.GATEWAY_TIMEOUT, "AI 친구가 지금 바빠요. 잠시 후 다시 시도해주세요");
         } catch (TimeoutException exception) {
             throw new AimongException(ErrorCode.GATEWAY_TIMEOUT, "AI 친구가 생각 중이에요. 다시 시도해볼까요?");
         } catch (InterruptedException exception) {
@@ -320,7 +327,7 @@ public class ChatService {
 
         try {
             OpenAiClient.GeneratedImage image = CompletableFuture
-                    .supplyAsync(() -> openAiClient.createImage(IMAGE_MODEL, sanitizedPrompt, IMAGE_SIZE, IMAGE_QUALITY))
+                    .supplyAsync(() -> openAiClient.createImage(IMAGE_MODEL, sanitizedPrompt, IMAGE_SIZE, IMAGE_QUALITY), openAiExecutor)
                     .get(IMAGE_TIMEOUT_SECONDS, TimeUnit.SECONDS);
             return new ChatResponse.GeneratedImageResponse(
                     image.b64Json(),

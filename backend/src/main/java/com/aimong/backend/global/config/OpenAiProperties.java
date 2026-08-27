@@ -1,5 +1,6 @@
 package com.aimong.backend.global.config;
 
+import java.time.Duration;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = "openai")
@@ -9,7 +10,8 @@ public record OpenAiProperties(
         String missionsApiKey,
         String baseUrl,
         String responsesPath,
-        boolean mockEnabled
+        boolean mockEnabled,
+        Duration readTimeout
 ) {
 
     public OpenAiProperties {
@@ -18,6 +20,9 @@ public record OpenAiProperties(
         }
         if (responsesPath == null || responsesPath.isBlank()) {
             responsesPath = "/responses";
+        }
+        if (readTimeout == null || readTimeout.isZero() || readTimeout.isNegative()) {
+            readTimeout = OpenAiConfig.defaultReadTimeout();
         }
     }
 

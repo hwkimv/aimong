@@ -308,12 +308,14 @@ class ChatServiceTest {
                 new ChatSafetyFilterService(),
                 privacyEventRepository,
                 openAiClient,
-                new OpenAiProperties("", "", "", "https://api.openai.com/v1", "/responses", mockEnabled),
+                new OpenAiProperties("", "", "", "https://api.openai.com/v1", "/responses", mockEnabled, null),
                 petGrowthService,
                 dailyQuestService,
                 weeklyQuestService,
                 achievementService,
-                transactionTemplate()
+                transactionTemplate(),
+                // run inline so the test asserts on chat behaviour, not on scheduling
+                Runnable::run
         );
     }
 

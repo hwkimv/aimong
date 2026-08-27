@@ -43,6 +43,8 @@ openai:
   base-url: ${OPENAI_BASE_URL:https://api.openai.com/v1}
   responses-path: ${OPENAI_RESPONSES_PATH:/responses}
   mock-enabled: ${OPENAI_MOCK_ENABLED:false}
+  # Upper bound on how long one OpenAI call may hold a request thread.
+  read-timeout: ${OPENAI_READ_TIMEOUT:20s}
 
 jwt:
   secret: ${JWT_SECRET}
